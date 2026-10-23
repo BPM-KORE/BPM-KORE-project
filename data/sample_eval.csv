@@ -1,0 +1,10 @@
+question_id,question,expected_source_ids,domain,difficulty,split,reference_answer,rubric
+q001,Which planet is the largest in the Solar System?,ast_001,astronomy,easy,train,Jupiter is the largest planet in the Solar System.,Jupiter
+q002,What is the tallest known volcano in the Solar System and on which planet is it?,ast_002,astronomy,medium,train,Olympus Mons on Mars.,Olympus Mons|Mars
+q003,How does a catalyst change the activation energy of a reaction?,che_002,chemistry,medium,train,It lowers the activation energy by providing an alternative reaction pathway.,lower|alternative
+q004,정렬된 배열에서 이진 탐색의 시간 복잡도는 얼마인가?,com_002,computing,medium,train,시간 복잡도는 O(log n)이다.,O(log n)
+q005,Which is denser: a neutron star or Saturn?,ast_003|ast_005,astronomy,hard,train,A neutron star is far denser: comparable to an atomic nucleus while Saturn is less dense than water.,nucleus|water
+q006,What is the pH of pure water at 25 C?,che_001,chemistry,easy,dev,Pure water at 25 C has a pH of 7.,7
+q007,What mechanism does TCP use to establish a connection?,com_005,computing,medium,dev,A three-way handshake.,three-way handshake
+q008,What evidence did Hubble find that the universe is expanding?,ast_004,astronomy,hard,test,Distant galaxies recede faster the farther away they are.,galaxies|recede
+q009,스택과 큐의 차이는 무엇인가?,com_003,computing,easy,test,스택은 LIFO이고 큐는 FIFO이다.,LIFO|FIFO

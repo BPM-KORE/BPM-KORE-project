@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+
+# 비밀 정보와 로컬 설정
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# 큰 산출물은 저장소에 넣지 않고 Drive 등 별도 저장소에 둔다
+*.bin
+*.pt
+*.safetensors
+*.npy
+*.npz
+results/**/*.parquet
