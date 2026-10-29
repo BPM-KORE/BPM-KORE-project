@@ -6,8 +6,7 @@ import itertools
 from dataclasses import replace
 from typing import Any
 
-from kore.pipeline import PipelineConfig
-from kore.retrieval import BM25Retriever
+from kore.pipeline import PipelineConfig, build_retriever
 from kore.schemas import EvalQuestion, KnowledgeItem
 from kore.selector import FEATURES, SelectorWeights, select_knowledge
 from kore.evaluation import recall_at_k
@@ -45,7 +44,7 @@ def grid_search_weights(
     if not scope:
         raise ValueError(f"{splits}에 해당하는 질문이 없다")
 
-    retriever = BM25Retriever(items, k1=cfg.bm25_k1, b=cfg.bm25_b, tokenizer_mode=cfg.tokenizer_mode)
+    retriever = build_retriever(items, cfg)
     cands = {q.question_id: retriever.retrieve(q.question, k=cfg.candidate_k) for q in scope}
 
     def mean_recall(strategy: str, weights: SelectorWeights | None) -> float:

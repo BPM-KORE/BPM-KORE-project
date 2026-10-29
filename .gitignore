@@ -22,3 +22,8 @@ secrets/
 *.npy
 *.npz
 results/**/*.parquet
+
+# 저작권이 불명확할 수 있는 원문 txt는 올리지 않는다(B가 로컬에 보관)
+raw/
+# 채점 키는 채점이 끝난 뒤 git add -f 로 올린다
+**/blind_key.csv

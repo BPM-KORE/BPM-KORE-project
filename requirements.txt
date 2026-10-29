@@ -8,5 +8,6 @@ pytest>=7
 # gradio>=4
 
 # 선택: Hugging Face 생성기 ->  pip install -e ".[hf]"
-# transformers
+# transformers>=4.51   (Qwen3를 읽으려면 4.51 이상)
 # torch
+# accelerate

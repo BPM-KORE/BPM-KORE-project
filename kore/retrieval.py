@@ -17,7 +17,7 @@ class BM25Retriever:
         items: list[KnowledgeItem],
         k1: float = 1.5,
         b: float = 0.75,
-        tokenizer_mode: str = "ngram",
+        tokenizer_mode: str = "ngram_stem",
     ) -> None:
         ids = [i.id for i in items]
         if len(set(ids)) != len(ids):

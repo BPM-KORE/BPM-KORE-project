@@ -118,3 +118,33 @@ def approx_mde(n: int, sd_diff: float, alpha: float = 0.05, power: float = 0.8) 
     nd = NormalDist()
     z = nd.inv_cdf(1 - alpha / 2) + nd.inv_cdf(power)
     return z * sd_diff / math.sqrt(n)
+
+
+def _ranks(values: list[float]) -> list[float]:
+    """평균 순위(동점은 평균). 가장 작은 값이 1."""
+    order = sorted(range(len(values)), key=lambda i: values[i])
+    ranks = [0.0] * len(values)
+    i = 0
+    while i < len(order):
+        j = i
+        while j + 1 < len(order) and values[order[j + 1]] == values[order[i]]:
+            j += 1
+        avg = (i + j) / 2 + 1
+        for k in range(i, j + 1):
+            ranks[order[k]] = avg
+        i = j + 1
+    return ranks
+
+
+def spearman(x: list[float], y: list[float]) -> float | None:
+    """스피어만 순위상관. 한쪽이 전부 같은 값이면 정의되지 않으므로 None."""
+    if len(x) != len(y) or len(x) < 3:
+        return None
+    rx, ry = _ranks(x), _ranks(y)
+    mx, my = sum(rx) / len(rx), sum(ry) / len(ry)
+    cov = sum((a - mx) * (b - my) for a, b in zip(rx, ry))
+    vx = sum((a - mx) ** 2 for a in rx)
+    vy = sum((b - my) ** 2 for b in ry)
+    if vx == 0 or vy == 0:
+        return None
+    return cov / (vx * vy) ** 0.5

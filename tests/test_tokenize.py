@@ -8,7 +8,23 @@ def test_latin_is_lowercased_and_split():
 
 
 def test_hangul_word_gets_char_bigrams_in_ngram_mode():
-    assert tokenize("목성은 크다") == ["목성은", "목성", "성은", "크다"]
+    assert tokenize("목성은 크다", "ngram") == ["목성은", "목성", "성은", "크다"]
+
+
+def test_default_mode_adds_a_stem_without_the_particle():
+    assert tokenize("목성은 크다") == ["목성은", "목성", "목성", "성은", "크다"]
+    # 세 글자 이상 어간은 2-gram만으로는 통째로 겹치지 않는다
+    assert "근로자" in tokenize("근로자에게") and "근로자" not in tokenize("근로자에게", "ngram")
+    # 어간이 한 글자만 남으면 떼지 않는다
+    assert tokenize("물은", "ngram_stem") == ["물은"]
+
+
+def test_stem_strips_the_longest_suffix_first():
+    from kore.tokenize import strip_suffix
+
+    assert strip_suffix("시행령에서는") == "시행령"
+    assert strip_suffix("근로자에게") == "근로자"
+    assert strip_suffix("시행령") is None
 
 
 def test_word_mode_has_no_bigrams():

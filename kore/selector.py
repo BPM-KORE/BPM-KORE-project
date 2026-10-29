@@ -26,7 +26,7 @@ class SelectorWeights:
     sim: float = 1.0
     coverage: float = 0.5
     diversity: float = 0.2
-    redundancy: float = 0.5
+    redundancy: float = 0.1
     reliability: float = 0.2
 
     def ablate(self, feature: str) -> "SelectorWeights":
@@ -56,7 +56,7 @@ def select_knowledge(
     strategy: str = "kore",
     weights: SelectorWeights | None = None,
     token_budget: int | None = None,
-    tokenizer_mode: str = "ngram",
+    tokenizer_mode: str = "ngram_stem",
     term_weights: dict[str, float] | None = None,
 ) -> list[KnowledgeItem]:
     """candidates에서 최대 k개를 고른다. 입력 객체는 바꾸지 않고 복사본을 돌려준다.

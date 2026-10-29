@@ -34,3 +34,10 @@ jobs:
           else
             echo "data/knowledge.csv가 아직 없어 건너뛴다"
           fi
+      - name: 데이터 점검 보고(정보용, 실패해도 막지 않는다)
+        run: |
+          if [ -f data/knowledge.csv ] && [ -f data/evaluation.csv ]; then
+            python -m kore stats --knowledge data/knowledge.csv --questions data/evaluation.csv --stage week1 || true
+          else
+            python -m kore stats --knowledge data/sample_knowledge.csv --questions data/sample_eval.csv --stage week1 || true
+          fi

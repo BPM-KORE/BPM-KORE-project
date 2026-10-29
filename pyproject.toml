@@ -13,7 +13,7 @@ dependencies = []
 [project.optional-dependencies]
 dev = ["pytest>=7"]
 demo = ["gradio>=4"]
-hf = ["transformers", "torch"]
+hf = ["transformers>=4.51", "torch", "accelerate"]
 
 [tool.setuptools.packages.find]
 include = ["kore*"]

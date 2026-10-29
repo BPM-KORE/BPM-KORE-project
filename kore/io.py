@@ -311,3 +311,31 @@ def write_questions(path: str | Path, questions: list[EvalQuestion]) -> None:
             row = q.to_dict()
             row["expected_source_ids"] = LIST_SEP.join(q.expected_source_ids)
             writer.writerow({c: row.get(c, "") for c in columns})
+
+
+def write_knowledge(path: str | Path, items: list[KnowledgeItem], append: bool = False) -> None:
+    """지식 문서를 계약 형식 CSV로 쓴다.
+
+    append=True이고 파일에 내용이 있으면 기존 헤더의 열 순서를 그대로 따라 뒤에 붙인다.
+    기존 파일에 필수 열이 빠져 있으면 열이 어긋나지 않게 ValueError를 낸다.
+    """
+    target = Path(path)
+    columns = list(KNOWLEDGE_REQUIRED) + list(KNOWLEDGE_OPTIONAL)
+    has_content = append and target.exists() and target.stat().st_size > 0
+    if has_content:
+        with target.open(newline="", encoding="utf-8-sig") as fh:
+            header = [h.strip() for h in next(csv.reader(fh), [])]
+        missing = [c for c in KNOWLEDGE_REQUIRED if c not in header]
+        if missing:
+            raise ValueError(f"{target.name}에 필수 열이 없어서 이어 쓸 수 없다: {', '.join(missing)}")
+        columns = header
+        if not target.read_bytes().endswith(b"\n"):
+            with target.open("a", encoding="utf-8") as fh:
+                fh.write("\n")
+    with target.open("a" if has_content else "w", newline="", encoding="utf-8") as fh:
+        writer = csv.DictWriter(fh, fieldnames=columns, extrasaction="ignore")
+        if not has_content:
+            writer.writeheader()
+        for item in items:
+            row = item.to_dict()
+            writer.writerow({c: row.get(c, "") for c in columns})

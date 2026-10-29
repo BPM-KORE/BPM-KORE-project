@@ -28,7 +28,11 @@ def test_redundancy_penalty_prefers_a_different_document():
     b = mk_item("B", "alpha omega sigma tau", 7.0)
     cands = [a, a2, b]
     assert ids(select_knowledge("alpha", cands, k=2, strategy="similarity", tokenizer_mode="word")) == ["A", "A2"]
-    assert ids(select_knowledge("alpha", cands, k=2, strategy="kore", tokenizer_mode="word")) == ["A", "B"]
+    strong = SelectorWeights(redundancy=0.5)
+    assert ids(select_knowledge("alpha", cands, k=2, strategy="kore", tokenizer_mode="word", weights=strong)) == ["A", "B"]
+    # 기본값(0.1)은 약하다. KorQuAD에서 0.5가 근거 하나짜리 질문의 정답 문단을 밀어냈기 때문이다(docs/REPORT 3차).
+    # 거의 같은 문서는 kore stats의 중복 점검으로 데이터에서 먼저 없앤다.
+    assert SelectorWeights().redundancy == 0.1
 
 
 def test_diversity_bonus_must_not_promote_an_irrelevant_document():

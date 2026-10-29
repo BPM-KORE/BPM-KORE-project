@@ -10,7 +10,11 @@
 | `data/knowledge.csv`, `data/source_log.csv`, `data/relations.csv` | B | A는 형식 오류만 고친다 |
 | `data/evaluation.csv` | C | A는 형식 오류만 고친다 |
 | `results/` | C가 실험 결과를 올리고 A가 코드 변경을 설명한다 | 누구나 읽는다 |
-| `docs/CONTRACT.md`, `docs/PROTOCOL.md`, `CLAUDE.md` | 셋이 함께(PR에 세 명 모두 승인) | |
+| `docs/CONTRACT.md`, `docs/PROTOCOL.md`, `docs/DECISIONS.md`, `CLAUDE.md` | 셋이 함께(PR에 세 명 모두 승인) | |
+| `docs/TASKS.md` | A가 갱신, 셋이 합의 | |
+| `data/evaluation_raw.csv` (질문 원본, 분할 전) | C | |
+| `raw/` (붙여 넣은 원문 txt) | B (저장소에 올리지 않아도 된다. 라이선스가 불명확한 원문은 올리지 않는다) | |
+| `results/*/blind/blind_key.csv` | A만 보관. 채점이 끝나기 전에는 올리지 않는다 | |
 | `docs/prereg/` | 실험을 설계한 사람 | 나머지가 읽고 승인한다 |
 
 `data/sample_*.csv`는 배관 점검용 샘플이다. 연구 데이터와 섞지 않는다.
@@ -18,17 +22,20 @@
 ## 2. 브랜치와 병합
 
 - `main`은 항상 테스트가 통과하는 상태로 둔다. 직접 올리지 않고 Pull Request로만 합친다.
+  비공개 무료 저장소는 보호 규칙을 쓸 수 없어서 기계가 막아 주지 않는다. 약속으로 지킨다(`DECISIONS.md` 12절).
 - 브랜치 이름: `feature/retrieval`, `feature/selector`, `feature/evaluation`, 데이터는 `data/b-...`, `data/c-...`.
 - PR은 CI(테스트 + 샘플 검증 + 실제 데이터 검증)가 초록이어야 합치고, 다른 한 명이 읽고 승인한다.
 - A가 Claude Code로 만든 변경도 같은 규칙을 따른다. Claude의 출력은 테스트를 통과하기 전에는 믿지 않는다.
 
-## 3. 처음 7일의 병렬 작업
+## 3. 처음 48시간의 병렬 작업
+
+자세한 내용과 명령은 [`TASKS.md`](TASKS.md)의 1절에 있다. 요약:
 
 | 사람 | 첫 작업 | 끝나면 |
 |---|---|---|
-| A | 이 저장소를 올리고 B, C에게 권한을 준다. Colab 노트북이 도는지 확인한다 | `main`에 푸시, 노트북 링크 공유 |
-| B | 출처를 직접 열어 확인한 문서 20개를 `knowledge.csv`에 적는다 | `kore validate` 통과 후 PR |
-| C | 근거가 있는 질문 15개를 `evaluation.csv`에 적는다(2~3개는 근거 둘 이상) | `kore validate` 통과 후 PR |
+| A | 이 저장소를 올리고 B, C에게 권한을 준다. Colab 노트북 01을 돌리고 노트북 02의 GPU 점검을 한다 | `main`에 푸시, 점검 결과를 이슈에 붙인다 |
+| B | 분야마다 출처를 직접 열어 확인한 문서 10개(총 30개)를 `kore ingest`로 `knowledge.csv`에 올린다 | `kore validate` 통과 후 PR |
+| C | 분야마다 질문 7개(총 21개)를 `evaluation_raw.csv`에 적고 `kore split`으로 나눈다(근거 둘 이상 6개 이상) | `kore validate` 통과 후 PR |
 
 B와 C는 A의 코드를 기다리지 않는다. 검증기가 이미 있어서 코드 없이도 데이터를 만들고 확인할 수 있다.
 

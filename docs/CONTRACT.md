@@ -29,7 +29,7 @@ A, B, C가 서로를 기다리지 않고 일하려면 파일 형식이 하나여
 
 ### 출처 기록 `data/source_log.csv` (담당: B)
 
-열: `id, source_url, accessed_date, license_checked, verified_by, note`. 형식만 정했고 검증기는 아직 없다.
+열: `id, source_url, accessed_date, license_checked, verified_by, note`. `kore ingest`가 문서를 올릴 때 자동으로 한 줄씩 쌓고, `kore stats`가 문서와 대조해서 빠진 id와 라이선스 미확인을 알려 준다.
 `license_checked`는 `yes`/`no`, `accessed_date`는 `YYYY-MM-DD`로 적는다.
 
 ## 3. `data/evaluation.csv` (담당: C)
@@ -42,7 +42,7 @@ A, B, C가 서로를 기다리지 않고 일하려면 파일 형식이 하나여
 | `domain` | 예 | 질문의 분야 |
 | `difficulty` | 예 | `easy`, `medium`, `hard` 중 하나 |
 | `split` | 예 | `train`, `dev`, `test` 중 하나 |
-| `reference_answer` | 둘 중 하나 | 사람이 읽는 모범 답안 |
+| `reference_answer` | 둘 중 하나 (기여도 라벨링에는 필수) | 모범 답안. **한 문장으로 짧게** 쓴다. 기여도 라벨링이 이 문장의 로그확률을 재므로 길면 잡음이 커진다 |
 | `rubric` | 둘 중 하나 | 자동 채점용 키워드. 항목은 `|`, 한 항목 안의 동의어는 `/`로 잇는다 |
 
 `rubric` 예: `lower/lowers|alternative` 는 "lower 또는 lowers"와 "alternative"가 모두 답변에 있어야 만점이다.
@@ -57,7 +57,8 @@ A, B, C가 서로를 기다리지 않고 일하려면 파일 형식이 하나여
 
 ### 분할 규칙 (C가 지킨다)
 
-- `python -m kore split --questions 원본.csv --out evaluation.csv --seed 0`으로 분야별 층화 배정을 한다.
+- `python -m kore split --questions 원본.csv --out evaluation.csv --seed 0`으로 분야별 층화 배정을 한다(비율 기본 train 50 / dev 20 / test 30).
+- 질문을 더 만든 뒤에는 `--keep-from evaluation.csv`를 붙여 다시 나눈다. 이전 질문의 분할은 그대로 두고 새 질문만 배정한다. `--keep-from` 없이 기존 `--out`을 덮어쓰려 하면 명령이 거부한다.
 - **한번 정한 split은 옮기지 않는다.** 질문을 새로 추가하는 건 괜찮지만, 기존 질문을 test에서 빼거나 넣지 않는다.
 - test 질문의 결과는 최종 평가 전에는 보지 않고, 그 결과를 보고 알고리즘을 고치지 않는다.
 

@@ -23,11 +23,14 @@ from kore.selector import FEATURES, SelectorWeights, select_knowledge
 
 BASE_CONDITIONS = ("no_retrieval", "vanilla_rag", "kore")
 ABLATION_PREFIX = "kore_ablate_"
+# 진단용 조건. 방법이 아니라 질문·루브릭·모델이 제대로인지 보는 점검이라서 방법 비교에 넣지 않는다.
+# gold_context: 정답 근거 문서를 그대로 준다(상한선). 이때도 점수가 낮으면 질문, 루브릭, 모델 중 하나가 문제다.
+DIAGNOSTIC_CONDITIONS = ("gold_context",)
 BASELINE = "vanilla_rag"
 
 
 def all_conditions() -> tuple[str, ...]:
-    return BASE_CONDITIONS + tuple(ABLATION_PREFIX + f for f in FEATURES)
+    return BASE_CONDITIONS + tuple(ABLATION_PREFIX + f for f in FEATURES) + DIAGNOSTIC_CONDITIONS
 
 
 @dataclass
@@ -35,14 +38,22 @@ class PipelineConfig:
     candidate_k: int = 10
     k: int = 3
     token_budget: int | None = None
-    tokenizer_mode: str = "ngram"
+    tokenizer_mode: str = "ngram_stem"
     bm25_k1: float = 1.5
     bm25_b: float = 0.75
     weights: SelectorWeights = field(default_factory=SelectorWeights)
+    # 후보 검색기. "bm25"(기본, CPU, 표준 라이브러리) 또는 "hybrid"(BM25 + 임베딩, torch 필요). kore/dense.py 참고
+    retriever: str = "bm25"
+    dense_model: str = "intfloat/multilingual-e5-small"
+    hybrid_alpha: float = 0.5
 
     def validate(self) -> None:
         if self.k < 1 or self.candidate_k < 1:
             raise ValueError("k와 candidate_k는 1 이상이어야 한다")
+        if self.retriever not in RETRIEVERS:
+            raise ValueError(f"retriever는 {RETRIEVERS} 중 하나여야 한다: {self.retriever!r}")
+        if not 0.0 <= self.hybrid_alpha <= 1.0:
+            raise ValueError("hybrid_alpha는 0~1이어야 한다")
         if self.k > self.candidate_k:
             raise ValueError("k는 candidate_k보다 클 수 없다")
 
@@ -51,7 +62,8 @@ class PipelineConfig:
         """설정 사전에서 만든다. 모르는 키는 오타일 수 있으니 조용히 넘기지 않고 오류를 낸다."""
         data = dict(data)
         weights_raw = data.pop("weights", {}) or {}
-        allowed = {"candidate_k", "k", "token_budget", "tokenizer_mode", "bm25_k1", "bm25_b"}
+        allowed = {"candidate_k", "k", "token_budget", "tokenizer_mode", "bm25_k1", "bm25_b",
+                   "retriever", "dense_model", "hybrid_alpha"}
         unknown = set(data) - allowed
         if unknown:
             raise ValueError(f"설정에 모르는 키가 있다: {sorted(unknown)}")
@@ -71,10 +83,35 @@ class PipelineConfig:
             "bm25_k1": self.bm25_k1,
             "bm25_b": self.bm25_b,
             "weights": self.weights.as_dict(),
+            **(
+                {"retriever": self.retriever, "dense_model": self.dense_model, "hybrid_alpha": self.hybrid_alpha}
+                if self.retriever != "bm25"
+                else {}
+            ),
         }
 
 
 RUN_LEVEL_KEYS = ("seed", "conditions")
+RETRIEVERS = ("bm25", "hybrid")
+
+# 임베딩 모델은 한 번만 올린다. 시험에서는 set_encoder로 가짜 인코더를 넣는다.
+_ENCODERS: dict[str, Any] = {}
+
+
+def set_encoder(model: str, encoder: Any) -> None:
+    _ENCODERS[model] = encoder
+
+
+def build_retriever(items: list[KnowledgeItem], config: "PipelineConfig") -> Any:
+    """설정에 맞는 후보 검색기. 모든 조건이 같은 검색기의 같은 후보를 공유한다."""
+    bm25 = BM25Retriever(items, k1=config.bm25_k1, b=config.bm25_b, tokenizer_mode=config.tokenizer_mode)
+    if config.retriever == "bm25":
+        return bm25
+    from kore.dense import HFEncoder, HybridRetriever
+
+    if config.dense_model not in _ENCODERS:
+        _ENCODERS[config.dense_model] = HFEncoder(config.dense_model)
+    return HybridRetriever(items, bm25, _ENCODERS[config.dense_model], alpha=config.hybrid_alpha)
 
 
 def load_config(path: str | Path) -> tuple[PipelineConfig, dict[str, Any]]:
@@ -98,20 +135,24 @@ class KOREPipeline:
         self.config = config or PipelineConfig()
         self.config.validate()
         self.generator = generator
-        self.retriever = BM25Retriever(
-            items,
-            k1=self.config.bm25_k1,
-            b=self.config.bm25_b,
-            tokenizer_mode=self.config.tokenizer_mode,
-        )
+        self.retriever = build_retriever(items, self.config)
 
     def candidates(self, question: str) -> list[KnowledgeItem]:
         return self.retriever.retrieve(question, k=self.config.candidate_k)
 
-    def select(self, question: str, candidates: list[KnowledgeItem], condition: str) -> list[KnowledgeItem]:
+    def select(
+        self,
+        question: str,
+        candidates: list[KnowledgeItem],
+        condition: str,
+        expected_ids: list[str] | None = None,
+    ) -> list[KnowledgeItem]:
         cfg = self.config
         if condition == "no_retrieval":
             return []
+        if condition == "gold_context":
+            known = {i.id for i in self.retriever.items}
+            return [self.retriever.get(i) for i in (expected_ids or []) if i in known]
         if condition == "vanilla_rag":
             return select_knowledge(
                 question, candidates, k=cfg.k, strategy="similarity",
@@ -139,7 +180,7 @@ class KOREPipeline:
         records: list[dict[str, Any]] = []
         for cond in conditions:
             t1 = time.perf_counter()
-            selected = self.select(q.question, cands, cond)
+            selected = self.select(q.question, cands, cond, expected_ids=q.expected_source_ids)
             select_ms = (time.perf_counter() - t1) * 1000
             answer: str | None = None
             generate_ms = 0.0

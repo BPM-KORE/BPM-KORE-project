@@ -167,3 +167,16 @@ def test_jsonl_questions_accept_list_ids(tmp_path):
     path.write_text(json.dumps(row) + "\n", encoding="utf-8")
     qs, report = read_questions(path)
     assert report.ok and qs[0].expected_source_ids == ["a1", "a2"]
+
+
+def test_assign_splits_fixed_questions_stay_and_new_ones_fill_the_gaps():
+    qs = make_questions(n_per_domain=20, domains=("a", "b"))
+    first = assign_splits(qs[:10] + qs[20:30], seed=0)
+    fixed = {q.question_id: q.split for q in first}
+    again = assign_splits(qs, seed=0, fixed=fixed)
+    assert all(q.split == fixed[q.question_id] for q in again if q.question_id in fixed)
+    for dom in ("a", "b"):
+        got = [q.split for q in again if q.domain == dom]
+        assert got.count("test") >= round(20 * 0.2)  # 목표 개수를 채운다
+    assert [q.split for q in assign_splits(qs, seed=0, fixed=None)] == [q.split for q in assign_splits(qs, seed=0)]
+    assert {q.split for q in assign_splits(qs, seed=0, fixed={qs[0].question_id: "엉뚱"})} <= {"train", "dev", "test"}

@@ -52,35 +52,73 @@ def test_secret_scanner_would_catch_a_leak(tmp_path):
         "README.md", "CLAUDE.md", "pyproject.toml", "requirements.txt", ".gitignore",
         "docs/CONTRACT.md", "docs/BOUNDARIES.md", "docs/PROTOCOL.md",
         "configs/default.json", "data/sample_knowledge.csv", "data/sample_eval.csv",
-        "notebooks/01_colab_quickstart.ipynb", ".github/workflows/ci.yml", "app.py",
+        "notebooks/01_colab_quickstart.ipynb", "notebooks/02_colab_gpu_run.ipynb", ".github/workflows/ci.yml", "app.py",
+        "configs/generator.json", "docs/DECISIONS.md", "docs/TASKS.md", "docs/START.md", "configs/hybrid.json",
+            "notebooks/03_colab_data_tools.ipynb",
     ],
 )
 def test_required_files_exist(rel):
     assert (ROOT / rel).is_file(), f"{rel}가 없다"
 
 
-def test_notebook_is_valid_json_and_code_cells_parse():
-    nb = json.loads((ROOT / "notebooks" / "01_colab_quickstart.ipynb").read_text(encoding="utf-8"))
+NOTEBOOKS = sorted((ROOT / "notebooks").glob("*.ipynb"))
+
+
+@pytest.mark.parametrize("path", NOTEBOOKS, ids=lambda p: p.name)
+def test_notebook_is_valid_json_and_code_cells_parse(path):
+    nb = json.loads(path.read_text(encoding="utf-8"))
     assert nb["nbformat"] == 4
     code_cells = [c for c in nb["cells"] if c["cell_type"] == "code"]
     assert code_cells
     for cell in code_cells:
         ast.parse("".join(cell["source"]))  # 문법 오류가 있으면 실패한다
+        assert not cell.get("outputs"), "실행 결과(출력)를 노트북에 남기지 않는다"
 
 
-def test_notebook_does_not_contain_placeholder_secrets_and_uses_valid_cli_flags():
-    nb = json.loads((ROOT / "notebooks" / "01_colab_quickstart.ipynb").read_text(encoding="utf-8"))
-    source = "\n".join("".join(c["source"]) for c in nb["cells"] if c["cell_type"] == "code")
+def _string_constants(source: str) -> list[str]:
+    return [n.value for n in ast.walk(ast.parse(source)) if isinstance(n, ast.Constant) and isinstance(n.value, str)]
+
+
+@pytest.mark.parametrize("path", NOTEBOOKS, ids=lambda p: p.name)
+def test_notebook_cli_flags_exist_in_the_real_cli(path):
+    """노트북이 부르는 `kore <명령> --옵션`이 실제 CLI에 있는지 확인한다(오타나 옛 옵션이 Colab에서 터지는 것을 막는다)."""
     from kore.cli import build_parser
 
-    parser = build_parser()
-    # 노트북이 부르는 명령의 옵션이 실제 CLI와 맞는지 확인한다.
-    for flag in ("--config", "--knowledge", "--questions", "--out"):
-        assert flag in source
-    ns = parser.parse_args(
-        ["run", "--config", "configs/default.json", "--knowledge", "a.csv", "--questions", "b.csv", "--out", "o"]
-    )
-    assert ns.cmd == "run"
+    sub = build_parser()._subparsers._group_actions[0].choices
+    nb = json.loads(path.read_text(encoding="utf-8"))
+    for cell in nb["cells"]:
+        if cell["cell_type"] != "code":
+            continue
+        consts = _string_constants("".join(cell["source"]))
+        commands = set()
+        for c in consts:
+            commands |= set(re.findall(r"-m kore ([a-z][a-z\-]*)", c))
+        for cmd in commands:
+            assert cmd in sub, f"{path.name}: 없는 명령 {cmd}"
+        if not commands:
+            continue
+        allowed = set()
+        for cmd in commands:
+            allowed |= {o for a in sub[cmd]._actions for o in a.option_strings}
+        used = set()
+        for c in consts:
+            if "git " in c or "pip install" in c:  # git·pip 옵션은 kore와 무관하다
+                continue
+            used |= set(re.findall(r"(?<![\w-])(--[a-z][a-z\-]*)", c))
+        unknown = {u for u in used if u not in allowed}
+        assert not unknown, f"{path.name}: CLI에 없는 옵션 {sorted(unknown)} (명령 {sorted(commands)})"
+
+
+def test_notebooks_do_not_embed_secrets_and_use_colab_secrets_for_tokens():
+    for path in NOTEBOOKS:
+        text = path.read_text(encoding="utf-8")
+        for label, pattern in SECRET_PATTERNS.items():
+            assert not pattern.search(text), f"{path.name}: {label}"
+    gpu = json.loads((ROOT / "notebooks" / "02_colab_gpu_run.ipynb").read_text(encoding="utf-8"))
+    code = "\n".join("".join(c["source"]) for c in gpu["cells"] if c["cell_type"] == "code")
+    assert "userdata" in code and "GITHUB_TOKEN" in code
+    # 실행 코드가 test 분할을 켜는 옵션을 넘기지 않는다(주석과 설명 글은 제외하고 문자열 상수만 본다)
+    assert not any("--final-test" in c for c in _string_constants(code))
 
 
 def test_ci_workflow_covers_supported_python_versions():
