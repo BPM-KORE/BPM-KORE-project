@@ -1,0 +1,4 @@
+[knowledge] 통과: 오류 0건, 경고 0건
+  문서 776개, 분야 {'law': 776}
+명령: python -m kore validate --knowledge suggested/data/knowledge.csv
+검증 도구 출처: 사용자 KORE 자료묶음의 코드 아카이브

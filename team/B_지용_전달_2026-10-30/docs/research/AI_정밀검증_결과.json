@@ -1,0 +1,217 @@
+{
+  "stats": {
+    "hwp_verified": 10,
+    "knowledge_rows": 777,
+    "exact_normalized_legal_body_matches": 777,
+    "source_articles": 804,
+    "deleted_articles_intentionally_unindexed": 47,
+    "substantive_articles_uncovered": 0,
+    "proposal_knowledge_rows": 776,
+    "proposal_excluded_row_ids": [
+      "law_pipa_decree_081"
+    ],
+    "issue_counts": {
+      "HTML_ENTITY": 1,
+      "EDITORIAL_NOTE": 14,
+      "FUTURE_EFFECTIVE": 1
+    },
+    "id_duplicates": 0,
+    "source_log_id_sets_match": true,
+    "all_human_verified": "no",
+    "full_official_web_text_compared": "no"
+  },
+  "files": [
+    {
+      "document": "개인정보 보호법",
+      "version": "20260911",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "개인정보 보호법(법률)(제21445호)(20260911).hwp"
+    },
+    {
+      "document": "개인정보 보호법 시행령",
+      "version": "20260911",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "개인정보 보호법 시행령(대통령령)(제36671호)(20260911).hwp"
+    },
+    {
+      "document": "공공기관의 정보공개에 관한 법률",
+      "version": "20231117",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "공공기관의 정보공개에 관한 법률(법률)(제19408호)(20231117).hwp"
+    },
+    {
+      "document": "공공기관의 정보공개에 관한 법률 시행령",
+      "version": "20260102",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "공공기관의 정보공개에 관한 법률 시행령(대통령령)(제35948호)(20260102).hwp"
+    },
+    {
+      "document": "공공데이터의 제공 및 이용 활성화에 관한 법률",
+      "version": "20260828",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "공공데이터의 제공 및 이용 활성화에 관한 법률(법률)(제21392호)(20260828).hwp"
+    },
+    {
+      "document": "공공데이터의 제공 및 이용 활성화에 관한 법률 시행령",
+      "version": "20260102",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "공공데이터의 제공 및 이용 활성화에 관한 법률 시행령(대통령령)(제35947호)(20260102).hwp"
+    },
+    {
+      "document": "전자정부법",
+      "version": "20260828",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "전자정부법(법률)(제21394호)(20260828).hwp"
+    },
+    {
+      "document": "전자정부법 시행령",
+      "version": "20260828",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "전자정부법 시행령(대통령령)(제36605호)(20260828).hwp"
+    },
+    {
+      "document": "정보통신공사업법",
+      "version": "20261022",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "정보통신공사업법(법률)(제21555호)(20261022).hwp"
+    },
+    {
+      "document": "공공기관의 운영에 관한 법률",
+      "version": "20261002",
+      "hwp_sha256_matches": true,
+      "hwp_xml_to_saved_raw_exact": true,
+      "hwp_filename": "공공기관의 운영에 관한 법률(법률)(제21857호)(20261002).hwp"
+    }
+  ],
+  "per_law": [
+    {
+      "law": "전자정부법",
+      "prefix": "law_egov",
+      "csv_rows": 99,
+      "source_article_headings": 100,
+      "deleted_only_articles": 4,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 99.92,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "전자정부법 시행령",
+      "prefix": "law_egov_decree",
+      "csv_rows": 113,
+      "source_article_headings": 121,
+      "deleted_only_articles": 8,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 99.873,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "공공기관의 정보공개에 관한 법률",
+      "prefix": "law_foia",
+      "csv_rows": 34,
+      "source_article_headings": 33,
+      "deleted_only_articles": 0,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 100.0,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "공공기관의 정보공개에 관한 법률 시행령",
+      "prefix": "law_foia_decree",
+      "csv_rows": 32,
+      "source_article_headings": 32,
+      "deleted_only_articles": 0,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 100.0,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "정보통신공사업법",
+      "prefix": "law_ictconstruction",
+      "csv_rows": 83,
+      "source_article_headings": 99,
+      "deleted_only_articles": 17,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 99.515,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "공공데이터의",
+      "prefix": "law_opendata",
+      "csv_rows": 42,
+      "source_article_headings": 42,
+      "deleted_only_articles": 0,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 100.0,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "공공데이터의",
+      "prefix": "law_opendata_decree",
+      "csv_rows": 34,
+      "source_article_headings": 34,
+      "deleted_only_articles": 0,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 100.0,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "개인정보 보호법",
+      "prefix": "law_pipa",
+      "csv_rows": 129,
+      "source_article_headings": 127,
+      "deleted_only_articles": 2,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 99.975,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "개인정보 보호법 시행령",
+      "prefix": "law_pipa_decree",
+      "csv_rows": 135,
+      "source_article_headings": 142,
+      "deleted_only_articles": 16,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 99.796,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    },
+    {
+      "law": "공공기관의 운영에 관한 법률",
+      "prefix": "law_pubinst",
+      "csv_rows": 76,
+      "source_article_headings": 74,
+      "deleted_only_articles": 0,
+      "substantive_article_coverage": "all",
+      "coverage_pct_including_deleted": 100.0,
+      "hwp_sha256_checked": "yes",
+      "official_version_metadata_checked": "yes",
+      "official_full_text_compared": "no"
+    }
+  ]
+}

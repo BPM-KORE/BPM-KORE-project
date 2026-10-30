@@ -86,7 +86,7 @@ class GeneratorSpec:
 
     kind: str = "hf"  # none | extractive | hf
     model: str = "Qwen/Qwen3-4B-Instruct-2507"
-    revision: str | None = None  # 재현하려면 모델 저장소의 커밋 해시를 적는다
+    revision: str | None = "cdbee75f17c01a7cc42f958dc650907174af0554"  # G1 통과 커밋으로 고정(재현용 모델 커밋 해시)
     dtype: str = "float16"  # Colab T4는 bfloat16을 기본 지원하지 않는다
     max_new_tokens: int = 96
     max_input_tokens: int = 4096

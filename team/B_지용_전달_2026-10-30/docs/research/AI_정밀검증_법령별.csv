@@ -1,0 +1,11 @@
+﻿law,prefix,csv_rows,source_article_headings,deleted_only_articles,substantive_article_coverage,coverage_pct_including_deleted,hwp_sha256_checked,official_version_metadata_checked,official_full_text_compared
+전자정부법,law_egov,99,100,4,all,99.92,yes,yes,no
+전자정부법 시행령,law_egov_decree,113,121,8,all,99.873,yes,yes,no
+공공기관의 정보공개에 관한 법률,law_foia,34,33,0,all,100.0,yes,yes,no
+공공기관의 정보공개에 관한 법률 시행령,law_foia_decree,32,32,0,all,100.0,yes,yes,no
+정보통신공사업법,law_ictconstruction,83,99,17,all,99.515,yes,yes,no
+공공데이터의,law_opendata,42,42,0,all,100.0,yes,yes,no
+공공데이터의,law_opendata_decree,34,34,0,all,100.0,yes,yes,no
+개인정보 보호법,law_pipa,129,127,2,all,99.975,yes,yes,no
+개인정보 보호법 시행령,law_pipa_decree,135,142,16,all,99.796,yes,yes,no
+공공기관의 운영에 관한 법률,law_pubinst,76,74,0,all,100.0,yes,yes,no

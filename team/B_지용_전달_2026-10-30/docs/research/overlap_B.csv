@@ -1,0 +1,13 @@
+﻿paper,question_no,question,answer,evidence_location,read_scope
+arXiv 2507.04480,1,어떤 언어와 데이터로 실험했는가?,영어 질문/응답 데이터 BioASQ·Natural Questions 각각 100질문(질문당 10문서)과 합성 가상 시나리오 사용.,§3.4 Experiments 1–3,method
+arXiv 2507.04480,2,어떤 AI 모델을 사용했는가?,LLaMA-3.2-8B-Instruct; Mistral-7B-Instruct; Qwen-3B-Instruct.,§3.3,method
+arXiv 2507.04480,3,자료가 답변에 얼마나 기여했는지 어떻게 측정했는가?,생성 답변과 목표 응답 간 유사도 기반 효용으로 문서 집합 기여를 평가하고 Shapley·LOO·Kernel SHAP·ContextCite 등 비교; 문서 제거 효과와 Precision@k 측정.,§3.1–3.4; Eq. (2)–(3); Table 1,method
+arXiv 2507.04480,4,여러 자료를 함께 쓸 때 도움이 되거나 방해되는 현상을 조사했는가?,예. 중복·상호보완·시너지(멀티홉) 합성 시나리오를 구성해 문서 간 관계 평가.,§3.4 Experiment 3; §4.3,method
+arXiv 2507.04480,5,과거의 결과를 이용해 자료 선택 방법을 개선했는가?,아니오(확인한 범위). 과거 실험 결과로 이후 질문의 자료 선택 정책을 학습시키는 방식보다는 사후 기여도 추정법의 성능을 비교.,§3.2–3.4; §5,method
+arXiv 2507.04480,6,우리 연구와 같은 점과 다른 점은 무엇인가? (같은 점: ... / 다른 점: ...),같은 점: RAG 문서 기여도·자료 간 상호작용·관련성 높은 방해 문서 문제. 다른 점: 해당 논문은 기여도 측정법 비교가 중심이며 KORE는 한국 법령 질문에서 기록된 결과를 바탕으로 선택 전략을 검증하려는 계획. KORE의 정확한 구현과 독창성은 A 승인 필요.,§1; §3.4; §4.1–4.3,method
+RepoShapley (arXiv 2601.03378),1,어떤 언어와 데이터로 실험했는가?,"주로 Python 코드 저장소(The Stack), RepoEval·CrossCodeEval·CrossCodeLongEval 평가. 부록에는 다언어 코드 평가도 있음. 일반 자연어 한국 법령 QA가 아님.",§4.1; Appendix C.8,method
+RepoShapley (arXiv 2601.03378),2,어떤 AI 모델을 사용했는가?,"StarCoderBase 1B/3B/7B, CodeLlama 7B/13B 모델을 미세조정.",§4.1 Models and Training,method
+RepoShapley (arXiv 2601.03378),3,자료가 답변에 얼마나 기여했는지 어떻게 측정했는가?,후보 코드 청크 조합에 따른 코드 완성 성능(EM·ES·단위 테스트 통과율)을 효용으로 삼고 Shapley 기반 청크 라벨 및 후검증 수행.,§3.2–3.4; §4.1; Appendix A.1,method
+RepoShapley (arXiv 2601.03378),4,여러 자료를 함께 쓸 때 도움이 되거나 방해되는 현상을 조사했는가?,예. 개별 청크 점수로는 놓치는 상호보완·충돌을 고려하는 coalition-aware 기여도와 선택 전략 제안.,§3.2–3.3; §4.2,method
+RepoShapley (arXiv 2601.03378),5,과거의 결과를 이용해 자료 선택 방법을 개선했는가?,예. 오프라인으로 만든 Shapley 기반 학습 라벨을 모델에 증류하여 새 입력에서 검색 여부와 청크 선택을 예측. 단 순차적 온라인 피드백 학습과 동일한 것은 아님.,§3.3–3.4; §4.1,method
+RepoShapley (arXiv 2601.03378),6,우리 연구와 같은 점과 다른 점은 무엇인가? (같은 점: ... / 다른 점: ...),"같은 점: 자료 조합의 기여, 효과 없는 자료 필터링, 과거 측정 결과를 바탕으로 선택 정책 개선. 다른 점: 코드 자동완성·대규모 미세조정 vs 한국 법령 QA와 소규모 비교 실험(가정). 정책 학습 아이디어는 이미 상당히 중복되므로 독창성 주장 전 A와 가설 재검토 필요.",§1; §3.2–3.4; §4.1–4.2; Table 2,method

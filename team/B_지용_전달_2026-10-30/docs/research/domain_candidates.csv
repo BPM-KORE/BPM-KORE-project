@@ -1,0 +1,4 @@
+﻿name,official_url,license,license_checked,license_url,checked_date,language
+HotpotQA,https://hotpotqa.github.io/,CC BY-SA 4.0,AI: official project homepage and authors GitHub README checked; user verification pending,https://creativecommons.org/licenses/by-sa/4.0/legalcode,2026-10-30,en
+SciFact,https://github.com/allenai/scifact,Claims/evidence: CC BY 4.0; abstracts/corpus: ODC-By 1.0; code: Apache 2.0,AI: official GitHub LICENSE.md checked; user verification pending,https://github.com/allenai/scifact/blob/master/LICENSE.md,2026-10-30,en
+QASPER,https://huggingface.co/datasets/allenai/qasper,CC BY 4.0 (dataset card); verify original S2ORC paper-text rights separately,AI: Hugging Face dataset card checked; original source rights unconfirmed; user verification pending,https://huggingface.co/datasets/allenai/qasper/blob/main/README.md,2026-10-30,en

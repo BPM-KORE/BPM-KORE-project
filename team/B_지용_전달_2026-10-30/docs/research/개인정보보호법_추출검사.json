@@ -1,0 +1,76 @@
+{
+  "source_file": "개인정보 보호법(법률)(제21445호)(20260911).hwp",
+  "source_sha256": "b9b0b38fe42d4d8f16309f8028098a99e68cf914c82a5e6be3867caba5d0f4b3",
+  "source_size_bytes": 474205,
+  "xml_paragraphs_nonempty": 1157,
+  "main_raw_article_occurrences": 134,
+  "raw_unique_main_article_ids": 129,
+  "main_kept_articles_before_short_deleted_filter": 125,
+  "project_knowledge_rows": 129,
+  "short_or_deleted_dropped": [
+    [
+      "개인정보 보호법 제8조",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 제28조의6",
+      "삭제된 조문"
+    ]
+  ],
+  "excluded_future_versions": [
+    [
+      "제2조",
+      "뒤쪽에 별도 표기된 미래 시행 판본",
+      18
+    ],
+    [
+      "제7조의9",
+      "뒤쪽에 별도 표기된 미래 시행 판본",
+      29
+    ],
+    [
+      "제28조의12",
+      "2027-03-09 시행 예정",
+      16
+    ],
+    [
+      "제28조의13",
+      "2027-03-09 시행 예정",
+      6
+    ],
+    [
+      "제28조의14",
+      "2027-03-09 시행 예정",
+      10
+    ],
+    [
+      "제28조의15",
+      "2027-03-09 시행 예정",
+      4
+    ],
+    [
+      "제32조의2",
+      "뒤쪽에 별도 표기된 미래 시행 판본",
+      14
+    ],
+    [
+      "제37조의2",
+      "뒤쪽에 별도 표기된 미래 시행 판본",
+      7
+    ],
+    [
+      "제75조",
+      "뒤쪽에 별도 표기된 미래 시행 판본",
+      57
+    ]
+  ],
+  "duplicate_ids": 0,
+  "source_log_matches_knowledge": true,
+  "source_log_license_checked": "no",
+  "source_log_verified_by": "blank",
+  "max_char_length": 1493,
+  "min_char_length": 48,
+  "count_future_articles_in_current_txt": 0,
+  "source_version_header": "개인정보 보호법 법제처- / - 국가법령정보센터[시행 2026. 9. 11.] [법률 제21445호, 2026. 3. 10., 일부개정]",
+  "project_cli_validator": "python -m kore validate --knowledge data/knowledge.csv : 오류 0건, 경고 0건"
+}

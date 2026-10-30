@@ -27,7 +27,7 @@
 조직 저장소는 조직 멤버가 각자 자기 토큰을 만들 수 있다. 조직은 무료 플랜으로 만들 수 있다.
 
 1. GitHub 오른쪽 위 프로필 사진 → **Settings** → 왼쪽 **Access** 아래 **Organizations** → **New organization** → **Free** 플랜.
-2. 조직 이름 예: `kore-lab-2026`(아무도 안 쓰는 이름이어야 한다). 연락 이메일은 A의 이메일. "My personal account"를 고른다.
+2. 조직 이름 예: `BPM-KORE`(아무도 안 쓰는 이름이어야 한다). 연락 이메일은 A의 이메일. "My personal account"를 고른다.
 
 **(2) 비공개(private)로 시작한다.**
 
@@ -66,7 +66,7 @@ winget install --id GitHub.cli --source winget
 brew install git gh
 ```
 
-설치 뒤 터미널을 새로 열고, 푼 폴더로 가서(`kore-lab-2026`은 1단계에서 만든 조직 이름으로 바꾼다):
+설치 뒤 터미널을 새로 열고, 푼 폴더로 가서(`BPM-KORE`은 1단계에서 만든 조직 이름으로 바꾼다):
 
 ```bash
 cd kore-project
@@ -76,7 +76,7 @@ gh auth login                      # GitHub.com → HTTPS → 브라우저로 �
 git init -b main
 git add .
 git commit -m "KORE 초기 코드"
-gh repo create kore-lab-2026/kore --private --source=. --remote=origin --push
+gh repo create BPM-KORE/kore --private --source=. --remote=origin --push
 ```
 
 마지막 줄이 저장소를 만들고 올리기까지 한다. 끝나면 `gh repo view --web`으로 브라우저에서 확인한다.
@@ -91,7 +91,7 @@ gh repo create kore-lab-2026/kore --private --source=. --remote=origin --push
 
 ## 3. B, C 초대 (A)
 
-1. 조직 페이지(`https://github.com/kore-lab-2026`) → **People** → **Invite member** → B, C의 GitHub 사용자 이름 → 역할 **Member**.
+1. 조직 페이지(`https://github.com/BPM-KORE`) → **People** → **Invite member** → B, C의 GitHub 사용자 이름 → 역할 **Member**.
 2. B, C는 메일로 온 초대를 **수락**한다.
 3. 쓰기 권한 주기: 저장소 `kore` → **Settings** → **Collaborators and teams** → **Add people** → B, C를 넣고 권한 **Write**.
    (조직 멤버의 기본 권한은 저장소를 읽기만 할 수 있게 되어 있을 수 있다. Write를 줘야 B, C가 PR 브랜치를 만들 수 있다.)
@@ -102,19 +102,19 @@ gh repo create kore-lab-2026/kore --private --source=. --remote=origin --push
 
 1. GitHub 오른쪽 위 프로필 사진 → **Settings** → 왼쪽 맨 아래 **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**.
 2. Token name: `kore-colab-read`. Expiration: 90일 정도.
-3. **Resource owner: 조직(`kore-lab-2026`)**. Repository access: **Only select repositories** → `kore`.
+3. **Resource owner: 조직(`BPM-KORE`)**. Repository access: **Only select repositories** → `kore`.
 4. Permissions → Repository permissions → **Contents: Read-only**. 다른 것은 건드리지 않는다.
 5. Generate token → 나온 값을 복사한다(이 화면을 닫으면 다시 볼 수 없다).
 6. B, C의 토큰은 처음에 **승인 대기(pending)**로 나온다(조직의 기본 설정이 관리자 승인이다). A가 조직 **Settings** → 왼쪽 **Personal access tokens** 아래 승인 요청 목록에서 승인한다. A 자신의 토큰은 승인이 필요 없다.
 7. Colab에서 노트북을 열고 왼쪽의 **열쇠 아이콘(Secrets)** → **새 보안 비밀 추가** → 이름 `GITHUB_TOKEN`, 값에 붙여 넣기 → **노트북 액세스**를 켠다.
-8. 같은 곳에 하나 더: 이름 `KORE_REPO_URL`, 값 `https://github.com/kore-lab-2026/kore.git`(내 조직 이름). 이걸 넣어 두면 노트북 02, 03의 셀마다 `REPO_URL`을 고칠 필요가 없다. 노트북 01은 셀이 하나라 그 셀의 `REPO_URL`만 고친다.
+8. 같은 곳에 하나 더: 이름 `KORE_REPO_URL`, 값 `https://github.com/BPM-KORE/kore.git`(내 조직 이름). 이걸 넣어 두면 노트북 02, 03의 셀마다 `REPO_URL`을 고칠 필요가 없다. 노트북 01은 셀이 하나라 그 셀의 `REPO_URL`만 고친다.
 
-토큰이 안 되면(오류 403/404): 노트북 셀의 `REPO_URL`이 `https://github.com/kore-lab-2026/kore.git`처럼 조직 이름으로 되어 있는지, 토큰이 승인됐는지, Secrets의 노트북 액세스가 켜져 있는지 순서대로 본다.
+토큰이 안 되면(오류 403/404): 노트북 셀의 `REPO_URL`이 `https://github.com/BPM-KORE/kore.git`처럼 조직 이름으로 되어 있는지, 토큰이 승인됐는지, Secrets의 노트북 액세스가 켜져 있는지 순서대로 본다.
 
 ## 5. Colab에서 첫 실행 (A)
 
 1. GitHub 저장소에서 `notebooks/01_colab_quickstart.ipynb`를 연다 → 파일 위의 **Open in Colab** 버튼이 없으면 https://colab.research.google.com → **GitHub** 탭 → 저장소 주소를 넣고 "비공개 저장소 포함"을 체크해서 연다.
-2. 첫 코드 셀 맨 위 `REPO_URL`을 `https://github.com/kore-lab-2026/kore.git`(내 조직 이름)으로 바꾸고 실행. 테스트가 전부 통과해야 한다. **G0 통과.**
+2. 첫 코드 셀 맨 위 `REPO_URL`을 `https://github.com/BPM-KORE/kore.git`(내 조직 이름)으로 바꾸고 실행. 테스트가 전부 통과해야 한다. **G0 통과.**
 3. `notebooks/02_colab_gpu_run.ipynb`를 같은 방법으로 연다. 메뉴 **런타임 → 런타임 유형 변경 → T4 GPU**.
 4. 4단계 8번의 `KORE_REPO_URL`을 저장했으면 손댈 것이 없다. 안 했으면 셀마다 `REPO_URL`을 바꾼다.
 5. 1번(준비) → 2번(GPU 점검) 순서로 실행. 2번의 마지막 줄 "판정: 통과"를 확인한다. **G1 통과.**

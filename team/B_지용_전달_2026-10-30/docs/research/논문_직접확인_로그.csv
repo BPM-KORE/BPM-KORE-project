@@ -1,0 +1,7 @@
+﻿check_id,paper,evidence_location,verified_content,verification_status
+P1-01,arXiv 2507.04480,Abstract,문서 기여도·문서 간 관계,사용자 직접 확인 보고
+P1-02,arXiv 2507.04480,§3.3,사용한 모델 3종,사용자 직접 확인 보고
+P1-03,arXiv 2507.04480,§3.4.1,BioASQ/Natural Questions 데이터 구성,사용자 직접 확인 보고
+P1-04,arXiv 2507.04480,§4.2 Table 1,NQ/Mistral 7B/k=2 대표 수치,사용자 직접 확인 보고 없음; AI 자료 요약만 존재
+P2-01,RepoShapley,Abstract,"Shapley 기여도, KEEP/DROP, completion quality",사용자 직접 확인 보고
+P2-02,RepoShapley,Table 2,RepoFormer 54.71 / CODEFILTER 57.19 / RepoShapley 61.34,사용자 직접 확인 보고

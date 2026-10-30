@@ -1,0 +1,17 @@
+﻿id,type,severity,action,details
+law_pipa_056,HTML_ENTITY,fixable,replace &nbsp; with whitespace,Text extraction artifact only
+law_pipa_062,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,[제39조의11에서 이동 ]
+law_pipa_067,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,"[제39조의10에서 이동, 종전 제34조의2는 삭제"
+law_pipa_082,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,"[제39조의9에서 이동, 종전 제39조의7은 삭제"
+law_pipa_decree_036,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,[제27조에서 이동 ]
+law_pipa_decree_059,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,[제32조의2에서 이동 ]
+law_pipa_decree_071,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,"[제37조에서 이동, 종전 제36조는 제37조로 이동 ]"
+law_pipa_decree_072,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,"[제36조에서 이동, 종전 제37조는 제36조로 이동 ]"
+law_pipa_decree_074,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,"[제40조에서 이동, 종전 제39조는 제40조로 이동 ]"
+law_pipa_decree_077,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,"[제39조에서 이동, 종전 제40조는 제39조로 이동 ]"
+law_pipa_decree_081,FUTURE_EFFECTIVE,quarantine,exclude row from evaluation pending A approval, 2027. 2. 20.] 제42조의2제1항제1호
+law_pipa_decree_109,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,[제48조의2에서 이동 ]
+law_egov_075,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,[제56조의3에서 이동 ]
+law_pubinst_010,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,[제8조에서 이동 ]
+law_pubinst_053,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,"[제43조의2에서 이동 , 종전 제43조의3은 제43조의4로 이동 ]"
+law_pubinst_054,EDITORIAL_NOTE,cosmetic,strip editorial bracket notes in suggested cleaned export,[제43조의3에서 이동 ]

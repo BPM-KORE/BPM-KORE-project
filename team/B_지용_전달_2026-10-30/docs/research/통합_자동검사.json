@@ -1,0 +1,94 @@
+{
+  "uploaded_decree_hwp_file": "개인정보 보호법 시행령(대통령령)(제36671호)(20260911).hwp",
+  "uploaded_decree_hwp_sha256": "dbf4049daf16b4a5b4e766e9f0e2a332d56df4594ccbe534132f22918d6b12f0",
+  "uploaded_law_hwp_sha256": "b9b0b38fe42d4d8f16309f8028098a99e68cf914c82a5e6be3867caba5d0f4b3",
+  "decree_header": "개인정보 보호법 시행령 법제처- / - 국가법령정보센터[시행 2026. 9. 11.] [대통령령 제36671호, 2026. 9. 10., 일부개정]",
+  "decree_main_articles_found_in_xml": 142,
+  "decree_main_unique_articles": 142,
+  "decree_main_duplicate_articles": {},
+  "decree_ingested_knowledge_rows": 135,
+  "decree_short_deleted_dropped": [
+    [
+      "개인정보 보호법 시행령 제4조",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제8조",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제10조",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제20조",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제29조의6",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의2",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의3",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의4",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의5",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의6",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의8",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의9",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의10",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의11",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의12",
+      "삭제된 조문"
+    ],
+    [
+      "개인정보 보호법 시행령 제48조의13",
+      "삭제된 조문"
+    ]
+  ],
+  "decree_split_long_chunk_count": 17,
+  "decree_max_chars_in_row": 1495,
+  "decree_min_chars_in_row": 47,
+  "decree_additional_future_effective_note": "[시행일: 2027. 2. 20.] 제42조의2제1항제1호",
+  "decree_main_appendix_separated": true,
+  "decree_hwpml_contains_separate_annex_full_text": "not_checked",
+  "previous_law_rows": 129,
+  "combined_rows": 264,
+  "combined_source_log_rows": 264,
+  "combined_duplicate_ids": 0,
+  "combined_source_log_id_match": true,
+  "license_checked_by_human": false,
+  "verified_by_human": false,
+  "import_validation": {
+    "exit_code": 0,
+    "stdout": "[knowledge] 통과: 오류 0건, 경고 0건\n  문서 264개, 분야 {'law': 264}\n",
+    "stderr": ""
+  }
+}

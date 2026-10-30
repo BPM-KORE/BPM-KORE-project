@@ -1,0 +1,271 @@
+{
+  "checks": {
+    "knowledge_rows": 777,
+    "source_log_rows": 777,
+    "distinct_knowledge_ids": 777,
+    "id_sets_equal": true,
+    "xml_hwp_source_10_matched": 10,
+    "edge_signatures_matched": 746,
+    "edge_signatures_need_manual_review": 31,
+    "html_entity_row_ids": [
+      "law_pipa_056"
+    ],
+    "is_complete_semantic_validation": false,
+    "verified_by_human": false
+  },
+  "by_law": [
+    {
+      "law": "개인정보 보호법",
+      "rows": 129,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 122,
+      "missing_start_count": 1,
+      "missing_end_count": 6,
+      "missing_start_samples": [
+        [
+          "law_pipa_002",
+          "제2조(정의)이법에서사용하는용어의뜻은다음과같다.1.“개"
+        ]
+      ],
+      "missing_end_samples": [
+        [
+          "law_pipa_007",
+          "1호에해당하는사항③삭제④삭제⑤삭제⑥삭제⑦삭제⑧삭제⑨삭제"
+        ],
+        [
+          "law_pipa_056",
+          "자”는“제3국에서개인정보를이전받는자”로본다.&nbsp;"
+        ],
+        [
+          "law_pipa_062",
+          "정보처리자가그행위를한것으로본다.[제39조의11에서이동]"
+        ],
+        [
+          "law_pipa_067",
+          "하여야한다.[제39조의10에서이동,종전제34조의2는삭제"
+        ],
+        [
+          "law_pipa_082",
+          "령으로정한다.[제39조의9에서이동,종전제39조의7은삭제"
+        ]
+      ],
+      "char_fragment_hit": 1285,
+      "char_fragment_total": 1446,
+      "coverage_percent": 88.87
+    },
+    {
+      "law": "개인정보 보호법 시행령",
+      "rows": 135,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 124,
+      "missing_start_count": 1,
+      "missing_end_count": 10,
+      "missing_start_samples": [
+        [
+          "law_pipa_decree_132",
+          "제62조(업무의위탁)①삭제②보호위원회는법제68조제1항에"
+        ]
+      ],
+      "missing_end_samples": [
+        [
+          "law_pipa_decree_020",
+          "하여야한다.1.정보주체에게알린사실2.알린시기3.알린방법"
+        ],
+        [
+          "law_pipa_decree_036",
+          "기를운영하는자에게그준수를권장할수있다.[제27조에서이동]"
+        ],
+        [
+          "law_pipa_decree_059",
+          "과개선이필요한사항을개선하였는지여부[제32조의2에서이동]"
+        ],
+        [
+          "law_pipa_decree_071",
+          "경우⑦삭제[제37조에서이동,종전제36조는제37조로이동]"
+        ],
+        [
+          "law_pipa_decree_072",
+          "보보유기간[제36조에서이동,종전제37조는제36조로이동]"
+        ]
+      ],
+      "char_fragment_hit": 1538,
+      "char_fragment_total": 1685,
+      "coverage_percent": 91.28
+    },
+    {
+      "law": "공공기관의 정보공개에 관한 법률",
+      "rows": 34,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 32,
+      "missing_start_count": 1,
+      "missing_end_count": 1,
+      "missing_start_samples": [
+        [
+          "law_foia_002",
+          "제2조(정의)이법에서사용하는용어의뜻은다음과같다.1.“정"
+        ]
+      ],
+      "missing_end_samples": [
+        [
+          "law_foia_031",
+          ".②제1항에따른보고서작성에필요한사항은대통령령으로정한다."
+        ]
+      ],
+      "char_fragment_hit": 257,
+      "char_fragment_total": 282,
+      "coverage_percent": 91.13
+    },
+    {
+      "law": "공공기관의 정보공개에 관한 법률 시행령",
+      "rows": 32,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 32,
+      "missing_start_count": 0,
+      "missing_end_count": 0,
+      "missing_start_samples": [],
+      "missing_end_samples": [],
+      "char_fragment_hit": 192,
+      "char_fragment_total": 208,
+      "coverage_percent": 92.31
+    },
+    {
+      "law": "공공데이터의 제공 및 이용 활성화에 관한 법률",
+      "rows": 42,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 40,
+      "missing_start_count": 1,
+      "missing_end_count": 1,
+      "missing_start_samples": [
+        [
+          "law_opendata_002",
+          "제2조(정의)이법에서사용하는용어의뜻은다음과같다.1.“공"
+        ]
+      ],
+      "missing_end_samples": [
+        [
+          "law_opendata_009",
+          "있다.④그밖에운영실태평가에필요한사항은대통령령으로정한다."
+        ]
+      ],
+      "char_fragment_hit": 310,
+      "char_fragment_total": 348,
+      "coverage_percent": 89.08
+    },
+    {
+      "law": "공공데이터의 제공 및 이용 활성화에 관한 법률 시행령",
+      "rows": 34,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 34,
+      "missing_start_count": 0,
+      "missing_end_count": 0,
+      "missing_start_samples": [],
+      "missing_end_samples": [],
+      "char_fragment_hit": 259,
+      "char_fragment_total": 292,
+      "coverage_percent": 88.7
+    },
+    {
+      "law": "전자정부법",
+      "rows": 99,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 96,
+      "missing_start_count": 1,
+      "missing_end_count": 2,
+      "missing_start_samples": [
+        [
+          "law_egov_002",
+          "제2조(정의)이법에서사용하는용어의뜻은다음과같다.1.“전"
+        ]
+      ],
+      "missing_end_samples": [
+        [
+          "law_egov_017",
+          ".⑥등록시스템의구축및운영에필요한사항은대통령령으로정한다."
+        ],
+        [
+          "law_egov_075",
+          "정보통신망의사용을일부제한할수있다.[제56조의3에서이동]"
+        ]
+      ],
+      "char_fragment_hit": 817,
+      "char_fragment_total": 903,
+      "coverage_percent": 90.48
+    },
+    {
+      "law": "전자정부법 시행령",
+      "rows": 113,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 113,
+      "missing_start_count": 0,
+      "missing_end_count": 0,
+      "missing_start_samples": [],
+      "missing_end_samples": [],
+      "char_fragment_hit": 960,
+      "char_fragment_total": 1103,
+      "coverage_percent": 87.04
+    },
+    {
+      "law": "정보통신공사업법",
+      "rows": 83,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 81,
+      "missing_start_count": 1,
+      "missing_end_count": 1,
+      "missing_start_samples": [
+        [
+          "law_ictconstruction_002",
+          "제2조(정의)이법에서사용하는용어의뜻은다음과같다.1.“정"
+        ]
+      ],
+      "missing_end_samples": [
+        [
+          "law_ictconstruction_020",
+          ".④제1항에따른신고에관하여는제15조및제16조를준용한다."
+        ]
+      ],
+      "char_fragment_hit": 511,
+      "char_fragment_total": 578,
+      "coverage_percent": 88.41
+    },
+    {
+      "law": "공공기관의 운영에 관한 법률",
+      "rows": 76,
+      "xml_meta_in_hwp": true,
+      "raw_body_in_hwp": true,
+      "head_tail_both": 72,
+      "missing_start_count": 0,
+      "missing_end_count": 4,
+      "missing_start_samples": [],
+      "missing_end_samples": [
+        [
+          "law_pubinst_010",
+          "기관의운영과관련하여대통령령으로정하는사항[제8조에서이동]"
+        ],
+        [
+          "law_pubinst_011",
+          ".⑧운영위원회의구성에관하여필요한사항은대통령령으로정한다."
+        ],
+        [
+          "law_pubinst_053",
+          "제43조의2에서이동,종전제43조의3은제43조의4로이동]"
+        ],
+        [
+          "law_pubinst_054",
+          "제10조”는각각“제43조”로본다.[제43조의3에서이동]"
+        ]
+      ],
+      "char_fragment_hit": 674,
+      "char_fragment_total": 799,
+      "coverage_percent": 84.36
+    }
+  ]
+}

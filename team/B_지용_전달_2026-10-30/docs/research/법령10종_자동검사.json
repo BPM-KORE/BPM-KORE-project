@@ -1,0 +1,432 @@
+{
+  "law_count": 10,
+  "csv_rows": 777,
+  "source_log_rows": 777,
+  "unique_ids": 777,
+  "source_urls": 10,
+  "duplicates_removed": 10,
+  "license_human_verified": false,
+  "human_text_comparison_completed": false,
+  "validator_exit_code": 0,
+  "validator_stdout": "[knowledge] 통과: 오류 0건, 경고 0건\n  문서 777개, 분야 {'law': 777}\n",
+  "validator_stderr": "",
+  "documents": [
+    {
+      "document": "개인정보 보호법",
+      "law_number": "21445",
+      "effective_date": "20260911",
+      "kind": "법률",
+      "role": "core",
+      "source_file": "개인정보 보호법(법률)(제21445호)(20260911).hwp",
+      "source_file_sha256": "b9b0b38fe42d4d8f16309f8028098a99e68cf914c82a5e6be3867caba5d0f4b3",
+      "source_size_bytes": 474205,
+      "metadata": "개인정보 보호법 법제처- / - 국가법령정보센터[시행 2026. 9. 11.] [법률 제21445호, 2026. 3. 10., 일부개정]",
+      "start_paragraph_index": 16,
+      "first_appendix_index": 1145,
+      "all_xml_paragraphs": 1157,
+      "main_text_paragraphs": 1129,
+      "article_headings_found": 136,
+      "unique_article_numbers_after_filter": 127,
+      "repeated_or_future_article_exclusions": [
+        {
+          "article": "2",
+          "reason": "repeated article header; later alternative staged-effective version excluded"
+        },
+        {
+          "article": "7-9",
+          "reason": "repeated article header; later alternative staged-effective version excluded"
+        },
+        {
+          "article": "28-12",
+          "reason": "2027-03-09 staged-effective article (excluded previously)"
+        },
+        {
+          "article": "28-13",
+          "reason": "2027-03-09 staged-effective article (excluded previously)"
+        },
+        {
+          "article": "28-14",
+          "reason": "2027-03-09 staged-effective article (excluded previously)"
+        },
+        {
+          "article": "28-15",
+          "reason": "2027-03-09 staged-effective article (excluded previously)"
+        },
+        {
+          "article": "32-2",
+          "reason": "repeated article header; later alternative staged-effective version excluded"
+        },
+        {
+          "article": "37-2",
+          "reason": "repeated article header; later alternative staged-effective version excluded"
+        },
+        {
+          "article": "75",
+          "reason": "repeated article header; later alternative staged-effective version excluded"
+        }
+      ],
+      "knowledge_rows": 129,
+      "rows_derived_from": "previous_unchanged",
+      "dropped_short_or_deleted": [],
+      "future_effective_marks_in_main": [
+        "[시행일: 2027. 3. 9.] 제2조",
+        "[시행일: 2027. 3. 9.] 제7조의9",
+        "제5절 인공지능기술 개발을 위한 개인정보 처리의 특례\n<신설 2026. 9. 8.>\n[시행일: 2027. 3. 9.] \n&nbsp;",
+        "[시행일: 2027. 3. 9.]",
+        "[시행일: 2027. 3. 9.] 제28조의12",
+        "[시행일: 2027. 3. 9.] 제28조의13",
+        "[시행일: 2027. 3. 9.] 제28조의14",
+        "[시행일: 2027. 3. 9.] 제28조의15",
+        "[시행일: 2027. 7. 1.] 제32조의2제1항 단서",
+        "[시행일: 2027. 3. 9.] 제37조의2",
+        "[시행일: 2027. 7. 1.] 제75조제2항제15호"
+      ],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "개인정보 보호법 시행령",
+      "law_number": "36671",
+      "effective_date": "20260911",
+      "kind": "대통령령",
+      "role": "core",
+      "source_file": "개인정보 보호법 시행령(대통령령)(제36671호)(20260911).hwp",
+      "source_file_sha256": "dbf4049daf16b4a5b4e766e9f0e2a332d56df4594ccbe534132f22918d6b12f0",
+      "source_size_bytes": 476745,
+      "metadata": "개인정보 보호법 시행령 법제처- / - 국가법령정보센터[시행 2026. 9. 11.] [대통령령 제36671호, 2026. 9. 10., 일부개정]",
+      "start_paragraph_index": 16,
+      "first_appendix_index": 1177,
+      "all_xml_paragraphs": 1181,
+      "main_text_paragraphs": 1161,
+      "article_headings_found": 142,
+      "unique_article_numbers_after_filter": 142,
+      "repeated_or_future_article_exclusions": [],
+      "knowledge_rows": 135,
+      "rows_derived_from": "previous_unchanged",
+      "dropped_short_or_deleted": [],
+      "future_effective_marks_in_main": [
+        "[시행일: 2027. 2. 20.] 제42조의2제1항제1호"
+      ],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "공공기관의 정보공개에 관한 법률",
+      "law_number": "19408",
+      "effective_date": "20231117",
+      "kind": "법률",
+      "role": "core",
+      "source_file": "공공기관의 정보공개에 관한 법률(법률)(제19408호)(20231117).hwp",
+      "source_file_sha256": "8d2676a37e66c7c96107c37456a9fa6dc196b5312bc28ab5a2f05260687587b9",
+      "source_size_bytes": 216636,
+      "metadata": "공공기관의 정보공개에 관한 법률 법제처- / - 국가법령정보센터[시행 2023. 11. 17.] [법률 제19408호, 2023. 5. 16., 타법개정]",
+      "start_paragraph_index": 9,
+      "first_appendix_index": 199,
+      "all_xml_paragraphs": 204,
+      "main_text_paragraphs": 190,
+      "article_headings_found": 33,
+      "unique_article_numbers_after_filter": 33,
+      "repeated_or_future_article_exclusions": [],
+      "knowledge_rows": 34,
+      "rows_derived_from": "new_ingestion",
+      "dropped_short_or_deleted": [],
+      "future_effective_marks_in_main": [],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "공공기관의 정보공개에 관한 법률 시행령",
+      "law_number": "35948",
+      "effective_date": "20260102",
+      "kind": "대통령령",
+      "role": "core",
+      "source_file": "공공기관의 정보공개에 관한 법률 시행령(대통령령)(제35948호)(20260102).hwp",
+      "source_file_sha256": "087596c89487b0bb0ecdcc5c97136b7c1afad7873b167a6a5c8e2904246c9edb",
+      "source_size_bytes": 206987,
+      "metadata": "공공기관의 정보공개에 관한 법률 시행령 법제처- / - 국가법령정보센터[시행 2026. 1. 2.] [대통령령 제35948호, 2025. 12. 30., 타법개정]",
+      "start_paragraph_index": 9,
+      "first_appendix_index": 186,
+      "all_xml_paragraphs": 193,
+      "main_text_paragraphs": 177,
+      "article_headings_found": 32,
+      "unique_article_numbers_after_filter": 32,
+      "repeated_or_future_article_exclusions": [],
+      "knowledge_rows": 32,
+      "rows_derived_from": "new_ingestion",
+      "dropped_short_or_deleted": [],
+      "future_effective_marks_in_main": [],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "공공데이터의 제공 및 이용 활성화에 관한 법률",
+      "law_number": "21392",
+      "effective_date": "20260828",
+      "kind": "법률",
+      "role": "core",
+      "source_file": "공공데이터의 제공 및 이용 활성화에 관한 법률(법률)(제21392호)(20260828).hwp",
+      "source_file_sha256": "c6cf3e19967e67303d7647185630a36884cfc50ca869aec8bc0ef29d061059a1",
+      "source_size_bytes": 230563,
+      "metadata": "공공데이터의 제공 및 이용 활성화에 관한 법률 법제처- / - 국가법령정보센터[시행 2026. 8. 28.] [법률 제21392호, 2026. 2. 27., 타법개정]",
+      "start_paragraph_index": 9,
+      "first_appendix_index": 243,
+      "all_xml_paragraphs": 252,
+      "main_text_paragraphs": 234,
+      "article_headings_found": 42,
+      "unique_article_numbers_after_filter": 42,
+      "repeated_or_future_article_exclusions": [],
+      "knowledge_rows": 42,
+      "rows_derived_from": "new_ingestion",
+      "dropped_short_or_deleted": [],
+      "future_effective_marks_in_main": [],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "공공데이터의 제공 및 이용 활성화에 관한 법률 시행령",
+      "law_number": "35947",
+      "effective_date": "20260102",
+      "kind": "대통령령",
+      "role": "core",
+      "source_file": "공공데이터의 제공 및 이용 활성화에 관한 법률 시행령(대통령령)(제35947호)(20260102).hwp",
+      "source_file_sha256": "348d1b30d83ddfabc48e3b15bdc3a6ee811bfff86ea0923759377e85a5dd77bf",
+      "source_size_bytes": 217003,
+      "metadata": "공공데이터의 제공 및 이용 활성화에 관한 법률... 법제처- / - 국가법령정보센터[시행 2026. 1. 2.] [대통령령 제35947호, 2025. 12. 30., 타법개정]",
+      "start_paragraph_index": 9,
+      "first_appendix_index": 189,
+      "all_xml_paragraphs": 196,
+      "main_text_paragraphs": 180,
+      "article_headings_found": 34,
+      "unique_article_numbers_after_filter": 34,
+      "repeated_or_future_article_exclusions": [],
+      "knowledge_rows": 34,
+      "rows_derived_from": "new_ingestion",
+      "dropped_short_or_deleted": [],
+      "future_effective_marks_in_main": [],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "전자정부법",
+      "law_number": "21394",
+      "effective_date": "20260828",
+      "kind": "법률",
+      "role": "core",
+      "source_file": "전자정부법(법률)(제21394호)(20260828).hwp",
+      "source_file_sha256": "b9e4e78214e4c440062a4b64eae5e8257541050800a5af1a9e19ed80eee1be6f",
+      "source_size_bytes": 334469,
+      "metadata": "전자정부법 법제처- / - 국가법령정보센터[시행 2026. 8. 28.] [법률 제21394호, 2026. 2. 27., 일부개정]",
+      "start_paragraph_index": 17,
+      "first_appendix_index": 601,
+      "all_xml_paragraphs": 603,
+      "main_text_paragraphs": 584,
+      "article_headings_found": 101,
+      "unique_article_numbers_after_filter": 100,
+      "repeated_or_future_article_exclusions": [
+        {
+          "article": "43-2",
+          "reason": "repeated article header; later alternative staged-effective version excluded"
+        }
+      ],
+      "knowledge_rows": 99,
+      "rows_derived_from": "new_ingestion",
+      "dropped_short_or_deleted": [
+        [
+          "전자정부법 제8조",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 제9조",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 제30조의3",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 제30조의4",
+          "삭제된 조문"
+        ]
+      ],
+      "future_effective_marks_in_main": [
+        "[시행일: 2026. 12. 3.] 제43조의2"
+      ],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "전자정부법 시행령",
+      "law_number": "36605",
+      "effective_date": "20260828",
+      "kind": "대통령령",
+      "role": "core",
+      "source_file": "전자정부법 시행령(대통령령)(제36605호)(20260828).hwp",
+      "source_file_sha256": "1a2d7d6d5811983db06f7b70e48d499247900bcf1a69151cce7d3625dfeb5552",
+      "source_size_bytes": 378378,
+      "metadata": "전자정부법 시행령 법제처- / - 국가법령정보센터[시행 2026. 8. 28.] [대통령령 제36605호, 2026. 8. 25., 일부개정]",
+      "start_paragraph_index": 18,
+      "first_appendix_index": 787,
+      "all_xml_paragraphs": 789,
+      "main_text_paragraphs": 769,
+      "article_headings_found": 121,
+      "unique_article_numbers_after_filter": 121,
+      "repeated_or_future_article_exclusions": [],
+      "knowledge_rows": 113,
+      "rows_derived_from": "new_ingestion",
+      "dropped_short_or_deleted": [
+        [
+          "전자정부법 시행령 제8조",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 시행령 제9조",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 시행령 제10조",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 시행령 제11조",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 시행령 제27조",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 시행령 제35조의3",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 시행령 제35조의4",
+          "삭제된 조문"
+        ],
+        [
+          "전자정부법 시행령 제48조",
+          "삭제된 조문"
+        ]
+      ],
+      "future_effective_marks_in_main": [],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "정보통신공사업법",
+      "law_number": "21555",
+      "effective_date": "20261022",
+      "kind": "법률",
+      "role": "distractor",
+      "source_file": "정보통신공사업법(법률)(제21555호)(20261022).hwp",
+      "source_file_sha256": "74bbfa37e550d40b87ecbb0014f6511ca26cf0e3753d610f7e50191f46a1f260",
+      "source_size_bytes": 284167,
+      "metadata": "정보통신공사업법 법제처- / - 국가법령정보센터[시행 2026. 10. 22.] [법률 제21555호, 2026. 4. 21., 일부개정]",
+      "start_paragraph_index": 9,
+      "first_appendix_index": 478,
+      "all_xml_paragraphs": 483,
+      "main_text_paragraphs": 469,
+      "article_headings_found": 99,
+      "unique_article_numbers_after_filter": 99,
+      "repeated_or_future_article_exclusions": [],
+      "knowledge_rows": 83,
+      "rows_derived_from": "new_ingestion",
+      "dropped_short_or_deleted": [
+        [
+          "정보통신공사업법 제13조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제18조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제20조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제21조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제28조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제34조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제52조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제53조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제54조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제55조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제56조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제57조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제58조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제59조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제60조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제61조",
+          "삭제된 조문"
+        ],
+        [
+          "정보통신공사업법 제62조",
+          "삭제된 조문"
+        ]
+      ],
+      "future_effective_marks_in_main": [],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    },
+    {
+      "document": "공공기관의 운영에 관한 법률",
+      "law_number": "21857",
+      "effective_date": "20261002",
+      "kind": "법률",
+      "role": "distractor",
+      "source_file": "공공기관의 운영에 관한 법률(법률)(제21857호)(20261002).hwp",
+      "source_file_sha256": "336bca83b983c62e450ba2a82af560247b125180fa34a32b440f1e59647f0597",
+      "source_size_bytes": 310742,
+      "metadata": "공공기관의 운영에 관한 법률 법제처- / - 국가법령정보센터[시행 2026. 10. 2.] [법률 제21857호, 2026. 8. 4., 타법개정]",
+      "start_paragraph_index": 9,
+      "first_appendix_index": 480,
+      "all_xml_paragraphs": 483,
+      "main_text_paragraphs": 471,
+      "article_headings_found": 74,
+      "unique_article_numbers_after_filter": 74,
+      "repeated_or_future_article_exclusions": [],
+      "knowledge_rows": 76,
+      "rows_derived_from": "new_ingestion",
+      "dropped_short_or_deleted": [],
+      "future_effective_marks_in_main": [],
+      "annex_extraction_verified": false,
+      "legal_accuracy_human_verified": false
+    }
+  ]
+}
