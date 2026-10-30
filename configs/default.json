@@ -1,0 +1,17 @@
+{
+  "candidate_k": 10,
+  "k": 3,
+  "token_budget": null,
+  "tokenizer_mode": "ngram_stem",
+  "bm25_k1": 1.5,
+  "bm25_b": 0.75,
+  "weights": {
+    "sim": 1.0,
+    "coverage": 0.5,
+    "diversity": 0.2,
+    "redundancy": 0.1,
+    "reliability": 0.2
+  },
+  "seed": 0,
+  "conditions": ["no_retrieval", "vanilla_rag", "kore"]
+}

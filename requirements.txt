@@ -1,0 +1,13 @@
+# 핵심 코드(kore/)는 파이썬 표준 라이브러리만 쓴다. 필수 의존성이 없다.
+# 보통은 `pip install -e ".[dev]"`로 설치한다. 아래는 같은 내용을 직접 적은 목록이다.
+
+# 테스트(필수에 가까움)
+pytest>=7
+
+# 선택: Gradio 데모    ->  pip install -e ".[demo]"
+# gradio>=4
+
+# 선택: Hugging Face 생성기 ->  pip install -e ".[hf]"
+# transformers>=4.51   (Qwen3를 읽으려면 4.51 이상)
+# torch
+# accelerate

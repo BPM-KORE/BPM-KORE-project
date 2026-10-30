@@ -1,0 +1,13 @@
+{
+  "_note": "주 생성 모델. 무료 Colab T4(약 15GB)에서 float16으로 약 8GB를 쓴다. 라이선스 Apache-2.0(모델 카드 확인). 한국어 능력은 모델 카드에 명시가 없어서 02_colab_gpu_check 노트북과 `kore screen`으로 직접 확인한 뒤 쓴다.",
+  "kind": "hf",
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "revision": null,
+  "dtype": "float16",
+  "max_new_tokens": 96,
+  "max_input_tokens": 4096,
+  "system_prompt": null,
+  "chat_template_kwargs": {},
+  "trust_remote_code": false,
+  "load_in_4bit": false
+}

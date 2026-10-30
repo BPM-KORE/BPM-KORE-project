@@ -1,0 +1,13 @@
+{
+  "_note": "다른 모델 계열에서도 되는지 보는 전이 확인용(H3·일반화). 한국어 특화 소형 모델. 라이선스가 비상업(NC)이라 연구 용도로만 쓴다. trust_remote_code=true는 모델 저장소의 코드를 실행하므로 모델 카드를 읽고 켠다. 모델 카드는 bfloat16을 권장하는데 T4는 지원하지 않아 float16을 쓴다. 정상 출력인지 먼저 확인한다.",
+  "kind": "hf",
+  "model": "LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct",
+  "revision": null,
+  "dtype": "float16",
+  "max_new_tokens": 96,
+  "max_input_tokens": 4096,
+  "system_prompt": "You are EXAONE model from LG AI Research, a helpful assistant.",
+  "chat_template_kwargs": {},
+  "trust_remote_code": true,
+  "load_in_4bit": false
+}

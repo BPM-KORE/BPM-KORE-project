@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: 설치
+        run: python -m pip install -e ".[dev]"
+      - name: 단위 테스트
+        run: python -m pytest -q
+      - name: 샘플 데이터 계약 검증
+        run: python -m kore validate --knowledge data/sample_knowledge.csv --questions data/sample_eval.csv
+      - name: 실제 데이터 계약 검증(파일이 있을 때만)
+        run: |
+          if [ -f data/knowledge.csv ]; then
+            if [ -f data/evaluation.csv ]; then
+              python -m kore validate --knowledge data/knowledge.csv --questions data/evaluation.csv
+            else
+              python -m kore validate --knowledge data/knowledge.csv
+            fi
+          else
+            echo "data/knowledge.csv가 아직 없어 건너뛴다"
+          fi
+      - name: 데이터 점검 보고(정보용, 실패해도 막지 않는다)
+        run: |
+          if [ -f data/knowledge.csv ] && [ -f data/evaluation.csv ]; then
+            python -m kore stats --knowledge data/knowledge.csv --questions data/evaluation.csv --stage week1 || true
+          else
+            python -m kore stats --knowledge data/sample_knowledge.csv --questions data/sample_eval.csv --stage week1 || true
+          fi
