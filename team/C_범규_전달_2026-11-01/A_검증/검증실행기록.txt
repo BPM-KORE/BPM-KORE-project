@@ -1,0 +1,85 @@
+# 검증 실행 기록 (2026-11-02, 저장소 main 01f8e40 기준)
+
+## 1. 원본 CSV: kore validate (구분자 ';' 그대로)
+[knowledge] 통과: 오류 0건, 경고 0건
+  문서 776개, 분야 {'law': 776}
+[evaluation] 실패: 오류 18건, 경고 6건
+  오류  evaluation_questions_20_provisional.csv:3: expected_source_ids의 'law_pipa_003;law_pipa_031'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:4: expected_source_ids의 'law_pipa_035;law_pipa_decree_020'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:5: expected_source_ids의 'law_pipa_037;law_pipa_decree_022'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:6: expected_source_ids의 'law_pipa_040;law_pipa_decree_025'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:7: expected_source_ids의 'law_pipa_042;law_pipa_decree_028'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:8: expected_source_ids의 'law_pipa_043;law_pipa_decree_029;law_pipa_decree_030;law_pipa_decree_031'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:9: expected_source_ids의 'law_pipa_045;law_pipa_decree_037'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:10: expected_source_ids의 'law_pipa_033;law_pipa_decree_019'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:11: expected_source_ids의 'law_pipa_068;law_pipa_072;law_pipa_073'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:12: expected_source_ids의 'law_pipa_066;law_pipa_decree_074;law_pipa_decree_077'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:13: expected_source_ids의 'law_foia_013;law_foia_decree_008'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:14: expected_source_ids의 'law_foia_014;law_foia_decree_009'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:15: expected_source_ids의 'law_foia_019;law_foia_decree_016'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:16: expected_source_ids의 'law_foia_026;law_foia_decree_010'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:17: expected_source_ids의 'law_foia_023;law_foia_024;law_foia_025'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:18: expected_source_ids의 'law_opendata_019;law_foia_011;law_foia_012'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:19: expected_source_ids의 'law_opendata_024;law_opendata_decree_021'가 knowledge에 없다
+  오류  evaluation_questions_20_provisional.csv:20: expected_source_ids의 'law_egov_013;law_egov_decree_012'가 knowledge에 없다
+  경고  evaluation_questions_20_provisional.csv:2: 질문 분야 '개인정보 보호법'와 근거 'law_pipa_002'의 분야 'law'가 다르다
+  경고  evaluation_questions_20_provisional.csv:2: rubric 항목 '가명 처리'이 질문 문장에 그대로 들어 있다(정답 누출 가능)
+  경고  evaluation_questions_20_provisional.csv:8: rubric 항목 '의견 수렴'이 질문 문장에 그대로 들어 있다(정답 누출 가능)
+  경고  evaluation_questions_20_provisional.csv:21: 질문 분야 '정보통신공사업법'와 근거 'law_ictconstruction_022'의 분야 'law'가 다르다
+  경고  test 분할이 비어 있다. 최종 평가를 할 수 없다
+  경고  dev 분할이 2개뿐이다. 이 크기로는 작은 차이를 구분하기 어렵다
+  질문 2개, 분할 {'dev': 2}
+
+## 2. 계약 형식 사본: kore validate
+[knowledge] 통과: 오류 0건, 경고 0건
+  문서 776개, 분야 {'law': 776}
+[evaluation] 통과: 오류 0건, 경고 3건
+  경고  evaluation_questions_20_계약형식.csv:2: rubric 항목 '가명 처리'이 질문 문장에 그대로 들어 있다(정답 누출 가능)
+  경고  evaluation_questions_20_계약형식.csv:8: rubric 항목 '의견 수렴'이 질문 문장에 그대로 들어 있다(정답 누출 가능)
+  경고  test 분할이 비어 있다. 최종 평가를 할 수 없다
+  질문 20개, 분할 {'dev': 20}
+
+## 3. 계약 형식 사본: kore stats --stage week1
+데이터 점검 (단계: week1) — 문서 776개, 질문 20개
+
+[통과] (필수) 문서 수: 776개 (목표 50개 이상)
+[주의] (권고) 분야 균형(문서): {'law': 776}; 20% 미만 분야: 없음
+[통과] (필수) 라이선스 미확인 문서: 0개 []
+[주의] (권고) 출처 기록(license_checked=yes): 776개가 아직 yes가 아니다 ['law_pipa_001', 'law_pipa_002', 'law_pipa_003', 'law_pipa_004', 'law_pipa_005']
+[통과] (권고) 문서 길이: 중앙값 358자, 100자 미만 또는 3000자 초과 52개(7%)
+[주의] (권고) 거의 같은 문서 쌍: 4쌍 [('law_pipa_085', 'law_opendata_032'), ('law_pipa_092', 'law_opendata_035'), ('law_pipa_094', 'law_opendata_036')]
+[실패] (필수) 질문 수: 20개 (목표 30개 이상)
+[통과] (필수) 분할 크기: {'dev': 20} (test 0, dev 0 이상)
+[통과] (권고) 분야 균형(질문): {'law': 20}; 20% 미만 분야: 없음
+[통과] (권고) 근거 둘 이상 질문(H2용): 18개
+[통과] (필수) 분할 간 거의 같은 질문: 0쌍 []
+[통과] (권고) 질문이 근거 문장을 베낀 의심: 0개 [] (겹침 비율, 높으면 검색 성능이 부풀려진다)
+[주의] (권고) 후보 재현율(BM25 상위 10): 0.60 (0.8 미만이면 선택기 이전에 검색부터 고쳐야 한다)
+[통과] (권고) 정답 근거로 안 쓰인 문서: 732개(94%) — 방해 문서 역할을 한다. 정보용
+
+필수 항목 미통과: 질문 수
+
+## 4. 정답 문장의 자기 루브릭 점수 (check_c_questions.py)
+질문 20개, 사본 저장: team/C_범규_전달_2026-11-01/A_검증/evaluation_questions_20_계약형식.csv
+id   | 근거수 | 없는id | 정답문장의 자기루브릭 점수 | 루브릭항목수
+Q01 | 1 | - | 0.00 | 3
+Q02 | 2 | - | 0.00 | 3
+Q03 | 2 | - | 0.00 | 3
+Q04 | 2 | - | 0.33 | 3
+Q05 | 2 | - | 0.67 | 3
+Q06 | 2 | - | 0.33 | 3
+Q07 | 4 | - | 0.00 | 3
+Q08 | 2 | - | 0.33 | 3
+Q09 | 2 | - | 0.33 | 3
+Q10 | 3 | - | 0.00 | 3
+Q11 | 3 | - | 0.00 | 3
+Q12 | 2 | - | 0.00 | 3
+Q13 | 2 | - | 0.00 | 3
+Q14 | 2 | - | 0.33 | 3
+Q15 | 2 | - | 0.33 | 3
+Q16 | 3 | - | 1.00 | 3
+Q17 | 3 | - | 0.00 | 3
+Q18 | 2 | - | 0.33 | 3
+Q19 | 2 | - | 1.00 | 3
+Q20 | 1 | - | 0.00 | 3
+평균 0.250 / 만점 2개 / 0점 10개
