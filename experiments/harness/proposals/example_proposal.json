@@ -1,0 +1,28 @@
+{
+  "proposal_version": 1,
+  "proposer": "claude-code (예시)",
+  "note": "배관 점검용 예시 제안이다. 근거 문장은 가설이고 검증된 사실이 아니다.",
+  "edits": [
+    {
+      "id": "ex_k2",
+      "component": "k",
+      "change": {"k": 2},
+      "rationale": "k를 줄이면 방해 문서가 줄어 정확도가 오를 수 있다는 가설",
+      "confidence": 0.3
+    },
+    {
+      "id": "ex_cov",
+      "component": "selector_weights",
+      "change": {"coverage": 0.8, "redundancy": 0.3},
+      "rationale": "질문 토큰 커버리지를 더 보면 근거 문서를 앞에 놓는지 보려는 가설",
+      "confidence": 0.2
+    },
+    {
+      "id": "ex_query",
+      "component": "query_rules",
+      "change": {"rules": [{"op": "remove_phrases", "phrases": ["Which", "What is"]}]},
+      "rationale": "의문사를 지우면 BM25 질의가 내용어 위주가 된다는 가설",
+      "confidence": 0.2
+    }
+  ]
+}
