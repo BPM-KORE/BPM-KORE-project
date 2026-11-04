@@ -34,14 +34,14 @@
   열: id, 순위, 원인 하나, 진단 README와 같은지(같음/다름), 근거 한 줄
 - 완료 기준: 17개 전부 원인 하나씩.
 
-### C2. 시험 문항 10개 (마감 11/10 화)
+### C2. 시험 문항 10개 (마감 11/6 금)
 - 이 작업은 내가 직접 쓴다. 질문 내용을 AI에게 보여 주거나 맡기지 마라.
 - 열 8개: question_id, question, expected_source_ids, domain(law), difficulty, split(test), reference_answer, rubric
 - 질문은 사람이 묻는 말로 쓴다. 근거 조문이 둘 이상인 문항을 섞는다.
 - 지용이 쓴 10개를 검토한다. 질문이 모호하지 않은지, 참조답이 원문과 맞는지, 루브릭이 정답을 다 잡는지 본다.
 - 산출물은 비공개 Google Drive 폴더에만 둔다. GitHub에는 올리지 않는다.
 
-### C3. 해시 목록 만들기 (마감 11/9 일, C2 끝난 뒤)
+### C3. 해시 목록 만들기 (마감 11/6 금)
 - 도구: https://github.com/BPM-KORE/BPM-KORE-project/blob/exp/colab-drive-2026-11-03/experiments/test_manifest/make_manifest.py
 - 원본 CSV는 Drive에서 내려받아 내 컴퓨터에만 둔다. 명령 세 개는 다음과 같다(경로는 네 컴퓨터 기준으로 바꿔라).
   - `python make_manifest.py make --questions 비공개/evaluation.csv --out test_manifest.csv`
@@ -50,7 +50,7 @@
 - 저장소에 올리는 건 manifest(질문 ID와 해시)뿐이다. 질문 내용이 섞이지 않았는지 scan으로 확인한 뒤 올린다.
 - 완료 기준: verify에서 해시가 모두 일치.
 
-### C4. 판정 규칙 사전 등록 초안 (마감 11/9 일)
+### C4. 판정 규칙 사전 등록 초안 (마감 11/6 금)
 - 아래 규칙을 문서로 옮긴다. 이건 서준이 아직 확정하지 않은 초안이다.
   - 검색 병목: 후보 재현율이 0.80 미만
   - Selector 병목: 후보 재현율 0.80 이상인데 포착률이 0.80 미만이고, kore가 유사도 상위 3개보다 낫지 않음
@@ -65,6 +65,6 @@
 - 걸린 시간
 
 ## 마감 요약
-C1 11/6 · C3 11/9 · C4 11/9 · C2 11/10
+모든 작업 마감: 11/6 (금)
 
 =====
