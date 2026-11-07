@@ -12,6 +12,7 @@ kore 점수식은 설계 가설이다. 가중치가 맞는지, 유사도 순위�
 from __future__ import annotations
 
 from dataclasses import dataclass, replace
+from functools import lru_cache
 
 from kore.schemas import KnowledgeItem
 from kore.splits import jaccard
@@ -42,6 +43,16 @@ class SelectorWeights:
             "redundancy": self.redundancy,
             "reliability": self.reliability,
         }
+
+
+@lru_cache(maxsize=4096)
+def _doc_tokens(doc: str, mode: str) -> frozenset[str]:
+    """문서 문자열(제목+본문)과 토크나이저 모드가 같을 때만 재사용하는 후보 토큰 집합 캐시.
+
+    키가 내용 자체라서 문서가 바뀌면 자동으로 다른 항목이 된다. LRU로 최대 4096개만 보관한다.
+    frozenset이라 돌려받은 쪽이 바꿀 수 없다.
+    """
+    return frozenset(tokenize(doc, mode))
 
 
 def _sim(item: KnowledgeItem) -> float:
@@ -108,7 +119,7 @@ def _select_kore(
     q_terms = set(tokenize(question, mode))
     tw = {t: (term_weights.get(t, 0.0) if term_weights is not None else 1.0) for t in q_terms}
     tw_total = sum(tw.values())
-    tok_sets = [set(tokenize(f"{c.title} {c.text}", mode)) for c in cands]
+    tok_sets = [_doc_tokens(f"{c.title} {c.text}", mode) for c in cands]
     costs = [estimate_item_tokens(c) for c in cands]
     max_sim = max((_sim(c) for c in cands), default=0.0)
 
