@@ -27,3 +27,11 @@ results/**/*.parquet
 raw/
 # 채점 키는 채점이 끝난 뒤 git add -f 로 올린다
 **/blind_key.csv
+
+# 라이선스 미확인 데이터: 로컬에서만 쓰고 커밋하지 않는다 (KORE_KB로 경로 지정)
+team/provisional/law/knowledge.csv
+team/provisional/law/source_log.csv
+team/B_*/data/knowledge.csv
+team/B_*/data/source_log.csv
+team/B_*/suggested/data/knowledge.csv
+team/B_*/suggested/data/source_log.csv

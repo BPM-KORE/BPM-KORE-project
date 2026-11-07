@@ -8,7 +8,8 @@ from kore.io import load_knowledge  # noqa: E402
 from kore.retrieval import BM25Retriever  # noqa: E402
 from kore.tokenize import tokenize  # noqa: E402
 
-KB = ROOT / "team/provisional/law/knowledge.csv"
+import os as _os
+KB = Path(_os.environ.get("KORE_KB", str(ROOT / "team/provisional/law/knowledge.csv")))
 QS = ROOT / "experiments/eval_normalization/evaluation_questions_20_v2.csv"
 
 def load():
