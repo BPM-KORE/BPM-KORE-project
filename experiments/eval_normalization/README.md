@@ -3,7 +3,7 @@
 상태: **AI 초안 — 사람 승인 대기.** 공식 평가 세트가 아니다. `data/`는 건드리지 않았다. 20문항은 모두 dev 분할이고 진단용이다.
 
 ## 무엇을 했나
-- 범규 C안(`team/C_범규_전달_2026-11-01/A_검증/evaluation_questions_20_계약형식.csv`)에서 질문, 근거 ID, 난이도, 분할은 그대로 두고 `reference_answer`와 `rubric`만 다시 썼다.
+- C C안(`team/C_전달_2026-11-01/A_검증/evaluation_questions_20_계약형식.csv`)에서 질문, 근거 ID, 난이도, 분할은 그대로 두고 `reference_answer`와 `rubric`만 다시 썼다.
 - 근거 조문 원문(`team/provisional/law/knowledge.csv`)과 20문항을 하나씩 대조해 사실을 확인했다.
 - 재생성: `python experiments/eval_normalization/build_v2.py`, 검증: `python experiments/eval_normalization/check_v2.py`.
 

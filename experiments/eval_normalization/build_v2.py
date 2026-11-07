@@ -5,7 +5,7 @@ import csv, sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SRC = HERE.parents[1] / "team/C_범규_전달_2026-11-01/A_검증/evaluation_questions_20_계약형식.csv"
+SRC = HERE.parents[1] / "team/C_전달_2026-11-01/A_검증/evaluation_questions_20_계약형식.csv"
 OUT = HERE / "evaluation_questions_20_v2.csv"
 
 NEW = {  # question_id: (reference_answer, rubric)
