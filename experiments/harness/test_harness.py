@@ -246,30 +246,30 @@ def test_approve_requires_finished_test_and_records_lesson(items, qs, tmp_path):
     loop = make_loop(items, qs, exp)
     loop.run([prop])
     with pytest.raises(ValueError):
-        loop.approve("bad", "adopted", "서준", "무효 편집")  # 무효는 채택 불가
+        loop.approve("bad", "adopted", "A", "무효 편집")  # 무효는 채택 불가
     with pytest.raises(ValueError):
         loop.approve("a", "adopted", "", "이유")
-    r = loop.approve("a", "adopted", "서준", "구간 확인 후 사람이 결정")
+    r = loop.approve("a", "adopted", "A", "구간 확인 후 사람이 결정")
     assert r["status"] == "adopted"
     ck = loop.load_checkpoint()
     assert ck["adopted"] == ["a"] and (exp / "adopted_config.json").exists()
     lessons = list(HarnessMemory(exp).lessons())
     assert lessons[0]["evidence"]["n"] == len(qs) and "일반화하지 않는다" in lessons[0]["scope"]
     with pytest.raises(ValueError):
-        loop.approve("a", "adopted", "서준", "두 번")
+        loop.approve("a", "adopted", "A", "두 번")
 
 
 def test_lesson_requires_evidence(tmp_path):
     m = HarnessMemory(tmp_path)
     with pytest.raises(SafetyError):
-        m.add_lesson("e", "k", "h", "rejected", "서준", "이유", {"n": 7}, None, {"k": 2})
+        m.add_lesson("e", "k", "h", "rejected", "A", "이유", {"n": 7}, None, {"k": 2})
 
 
 def test_rejected_edit_is_not_proposed_again(items, qs, tmp_path):
     exp = tmp_path / "exp"
     loop = make_loop(items, qs, exp)
     loop.run([write_prop(tmp_path, [good_edit("a", k=1)], "p0.json")])
-    loop.approve("a", "rejected", "서준", "차이가 구분되지 않았다")
+    loop.approve("a", "rejected", "A", "차이가 구분되지 않았다")
     loop.run([write_prop(tmp_path, [good_edit("a", k=1)], "p0.json"), write_prop(tmp_path, [good_edit("a2", k=1)], "p1.json")])
     e = edits_of(loop.load_checkpoint())
     assert e["a2"]["status"] == "invalid" and "기각" in e["a2"]["invalid_reason"]

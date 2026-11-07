@@ -8,7 +8,8 @@ from kore.retrieval import BM25Retriever
 from kore.schemas import KnowledgeItem
 
 OUT = pathlib.Path(__file__).resolve().parent
-KB = ROOT / "team/provisional/law/knowledge.csv"
+import os as _os
+KB = pathlib.Path(_os.environ.get("KORE_KB", str(ROOT / "team/provisional/law/knowledge.csv")))
 QS = ROOT / "experiments/eval_normalization/evaluation_questions_20_v2.csv"
 KS = (5, 10, 20, 30)
 

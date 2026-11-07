@@ -31,7 +31,7 @@
 - `python -m pytest -q`: 226 passed (기존 테스트 변화 없음). `python -m pytest -q experiments/test_manifest`: 7 passed.
 - 실제 v2 CSV는 전부 dev라서 `make`가 "test 분할 질문이 없다"로 종료 코드 1을 냈다(의도한 동작). 실제 평가 데이터로는 manifest를 만들지 않았다.
 
-## 미완성 (Colab에서 서준이 해 볼 것)
+## 미완성 (Colab에서 A가 해 볼 것)
 
 1. **GPU 경로 미검증.** `HFGenerator`의 모델 로딩, 생성, 요약 블록의 dtype·GPU 표시는 T4에서 처음 돌려야 안다. 첫 실행은 `configs/generator.json` revision의 모델 다운로드(약 8GB)가 있다.
 2. 셀의 `BRANCH`는 기본 `main`이다. v2 CSV가 들어간 PR #3이 합쳐지기 전이면 그 브랜치 이름으로 바꾼다(CSV가 없으면 `kore run`이 바로 실패한다). Drive 마운트 승인 팝업이 한 번 뜬다.
